@@ -115,23 +115,25 @@
 
 
 
-  <meta name="description" content="Welcome to my blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="I&#39;m Sfencs">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="花了点时间将《Effective Python》读了一遍，将部分知识做了下总结   1.PEP8风格1.函数与类两个空行隔开2.类中方法一个空行隔开3.赋值号左右各加一个空格4.类与异常中单词首字母大写，如CapitalizedWord5.模块级别常量，字母全大写加下划线ALL_CAPS6.判断列表是否为空:if not list7.引入模块，最好绝对路径，from a import b   ，非">
+<meta name="keywords" content="python,类，内置函数，PEP8，列表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编写高质量python代码">
+<meta property="og:url" content="http://yoursite.com/2018/12/12/编写高质量python代码/index.html">
 <meta property="og:site_name" content="I&#39;m Sfencs">
-<meta property="og:description" content="Welcome to my blog">
+<meta property="og:description" content="花了点时间将《Effective Python》读了一遍，将部分知识做了下总结   1.PEP8风格1.函数与类两个空行隔开2.类中方法一个空行隔开3.赋值号左右各加一个空格4.类与异常中单词首字母大写，如CapitalizedWord5.模块级别常量，字母全大写加下划线ALL_CAPS6.判断列表是否为空:if not list7.引入模块，最好绝对路径，from a import b   ，非">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-12T03:59:53.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="I&#39;m Sfencs">
-<meta name="twitter:description" content="Welcome to my blog">
+<meta name="twitter:title" content="编写高质量python代码">
+<meta name="twitter:description" content="花了点时间将《Effective Python》读了一遍，将部分知识做了下总结   1.PEP8风格1.函数与类两个空行隔开2.类中方法一个空行隔开3.赋值号左右各加一个空格4.类与异常中单词首字母大写，如CapitalizedWord5.模块级别常量，字母全大写加下划线ALL_CAPS6.判断列表是否为空:if not list7.引入模块，最好绝对路径，from a import b   ，非">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/12/编写高质量python代码/">
 
 
 
@@ -141,7 +143,7 @@
   };
 </script>
 
-  <title>I'm Sfencs</title>
+  <title>编写高质量python代码 | I'm Sfencs</title>
   
 
 
@@ -200,8 +202,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -242,7 +243,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -338,9 +339,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -372,10 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/12/编写高质量python代码/" class="post-title-link" itemprop="http://yoursite.com/index.html">编写高质量python代码</a>
+          <h1 class="post-title" itemprop="name headline">编写高质量python代码
               
             
           </h1>
@@ -456,9 +454,7 @@
       
 
       
-        
-          
-            <p>花了点时间将《Effective Python》读了一遍，将部分知识做了下总结  </p>
+        <p>花了点时间将《Effective Python》读了一遍，将部分知识做了下总结  </p>
 <h1 id="1-PEP8风格"><a href="#1-PEP8风格" class="headerlink" title="1.PEP8风格"></a>1.PEP8风格</h1><p>1.函数与类两个空行隔开<br>2.类中方法一个空行隔开<br>3.赋值号左右各加一个空格<br>4.类与异常中单词首字母大写，如CapitalizedWord<br>5.模块级别常量，字母全大写加下划线ALL_CAPS<br>6.判断列表是否为空:if not list<br>7.引入模块，最好绝对路径，from a import b   ，非得用相对名称就 from . import a<br>8.引入模块顺序:标准库，第三方，自用。每个部分安首字母顺序引入</p>
 <h1 id="2-列表"><a href="#2-列表" class="headerlink" title="2.列表"></a>2.列表</h1><p>1.一次切片尽量避免既有start又有end和stride，如果需要这样执行，考虑拆解，一个做范围切割，一个做步进切割。<br>2.使用列表推导代替map()和filter(),这样可以避免使用lambda表达式。<br>3.可以使用含两个表达式的列表推导，如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line">list2=[x <span class="keyword">for</span> row <span class="keyword">in</span> list1 <span class="keyword">for</span> x <span class="keyword">in</span> row]</span><br><span class="line">print(list2)</span><br><span class="line"><span class="comment">#[1,2,3,4,5,6,7,8,9]</span></span><br></pre></td></tr></table></figure></p>
 <p>或者<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">list2=[x <span class="keyword">for</span> x <span class="keyword">in</span> list1 <span class="keyword">if</span> x &gt; <span class="number">4</span> <span class="keyword">if</span> x &lt; <span class="number">8</span>]</span><br><span class="line">print(list2)</span><br><span class="line"><span class="comment">#[5,6,7]</span></span><br></pre></td></tr></table></figure></p>
@@ -544,8 +540,6 @@
 </ul>
 <p>4.需要精度很高的数值时可以使用Decimal,同时Decimal也可以按照要求的精度和舍入方式来调整数值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rate = Decimal(<span class="string">'0.05'</span>)</span><br><span class="line">seconds = Decimal(<span class="string">'5'</span>)</span><br><span class="line">cost = rate * seconds / Decimal(<span class="string">'60'</span>)</span><br><span class="line">print(cost)</span><br><span class="line">rounded = cost.quantize(Decimal(<span class="string">'0.01'</span>),rounding=ROUND_UP)</span><br></pre></td></tr></table></figure></p>
 
-          
-        
       
     </div>
 
@@ -566,545 +560,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/git命令学习/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sfencs">
-      <meta itemprop="description" content="Welcome to my blog">
-      <meta itemprop="image" content="/images/head_pic.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Sfencs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/01/git命令学习/" class="post-title-link" itemprop="http://yoursite.com/index.html">git命令学习</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-01 21:58:37 / 修改时间：22:03:32" itemprop="dateCreated datePublished" datetime="2018-12-01T21:58:37+08:00">2018-12-01</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/learn/" itemprop="url" rel="index"><span itemprop="name">learn</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/python/" rel="tag"># python</a>
           
-
+            <a href="/tags/类，内置函数，PEP8，列表/" rel="tag"># 类，内置函数，PEP8，列表</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>初始化名字email  </p>
-<blockquote>
-<p>$ git config –global user.name “Your Name”<br>$ git config –global user.email “<a href="mailto:email@example.com" target="_blank" rel="noopener">email@example.com</a>“</p>
-</blockquote>
-<p>仓库初始化，变成git可管理的仓库  </p>
-<blockquote>
-<p>$ git init</p>
-</blockquote>
-<p>向暂存区添加文件  </p>
-<blockquote>
-<p>$ git add <file></file></p>
-</blockquote>
-<p>将暂存区内容提交到历史记录区</p>
-<blockquote>
-<p>$ git commit -m <message></message></p>
-</blockquote>
-<p>查看仓库状态</p>
-<blockquote>
-<p>$ git status</p>
-</blockquote>
-<p>比较状况，工作区与暂存区</p>
-<blockquote>
-<p>$ git diff <file><br>$ git diff</file></p>
-</blockquote>
-<p>比较状况，工作区与版本库</p>
-<blockquote>
-<p>$ git diff HEAD – <file></file></p>
-</blockquote>
-<p>比较状况，暂存区与版本库</p>
-<blockquote>
-<p>$ git diff –cached</p>
-</blockquote>
-<p>查看日志</p>
-<blockquote>
-<p>$ git log<br>$ git log –pretty=oneline</p>
-</blockquote>
-<p>版本回退</p>
-<blockquote>
-<p>$ git reset –hard HEAD^<br>$ git reset –hard HEAD~3<br>$ git reset –hard 548b5  </p>
-</blockquote>
-<p>查看命令历史</p>
-<blockquote>
-<p>$ git reflog</p>
-</blockquote>
-<p>撤销对工作区文件的修改，还没有提交到暂存区</p>
-<blockquote>
-<p>$ git checkout – <file></file></p>
-</blockquote>
-<p>对暂存区的修改撤销</p>
-<blockquote>
-<p>$ git reset HEAD <file></file></p>
-</blockquote>
-<p>删除暂存区可工作区的文件</p>
-<blockquote>
-<p>$ git rm <file></file></p>
-</blockquote>
-<p>仅删除暂存区的文件</p>
-<blockquote>
-<p>$ git rm –cached <file></file></p>
-</blockquote>
-<p>与github仓库关联</p>
-<blockquote>
-<p>$ git remote add origin  <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:Sfencs/learngit.git</p>
-</blockquote>
-<p>第一次推送加关联master分支</p>
-<blockquote>
-<p>$ git push -u origin master</p>
-</blockquote>
-<p>之后的推送</p>
-<blockquote>
-<p>$ git push origin master</p>
-</blockquote>
-<p>克隆远程库</p>
-<blockquote>
-<p>$ git clone <a href="https://github.com/Sfencs/learngit.git" target="_blank" rel="noopener">https://github.com/Sfencs/learngit.git</a></p>
-</blockquote>
-<p>创建分支</p>
-<blockquote>
-<p>$ git branch <name></name></p>
-</blockquote>
-<p>切换分支</p>
-<blockquote>
-<p>$ git checkout <name></name></p>
-</blockquote>
-<p>创建并切换分支</p>
-<blockquote>
-<p>$ git checkout -b <name></name></p>
-</blockquote>
-<p>查看分支</p>
-<blockquote>
-<p>$ git branch</p>
-</blockquote>
-<p>合并指定分支到当前分支</p>
-<blockquote>
-<p>$ git merge <name></name></p>
-</blockquote>
-<p>删除分支</p>
-<blockquote>
-<p>$ git branch -d <name></name></p>
-</blockquote>
-<p>查看分支合并</p>
-<blockquote>
-<p>$ git log –graph –pretty=oneline –abbrev-commit<br>$ git log –graph</p>
-</blockquote>
-<p>不使用fast forward方式合并，使用普通方式</p>
-<blockquote>
-<p>$ git merge –no-ff -m “merge with no-ff” <name></name></p>
-</blockquote>
-<p>储藏现场</p>
-<blockquote>
-<p>$ git stash</p>
-</blockquote>
-<p>查看储藏</p>
-<blockquote>
-<p>$ git stash list</p>
-</blockquote>
-<p>恢复现场</p>
-<blockquote>
-<p>$ git stash apply</p>
-</blockquote>
-<p>删除储藏</p>
-<blockquote>
-<p>$ git stash drop  </p>
-</blockquote>
-<p>恢复现场并删除储藏</p>
-<blockquote>
-<p>$ git stash pop</p>
-</blockquote>
-<p>恢复指定储藏</p>
-<blockquote>
-<p>$ git stash apply stash@{0}</p>
-</blockquote>
-<p>强行删除没有被合并的分支</p>
-<blockquote>
-<p>git branch -D <name></name></p>
-</blockquote>
-<p>查看远程库的信息</p>
-<blockquote>
-<p>$ git remote<br>$ git remote -v</p>
-</blockquote>
-<p>把分支推送到远程库对应分支</p>
-<blockquote>
-<p>$ git push origin dev</p>
-</blockquote>
-<p>创建远程库的分支</p>
-<blockquote>
-<p>$ git checkout -b dev origin/dev</p>
-</blockquote>
-<p>指定本地分支与远程分支的链接</p>
-<blockquote>
-<p>$ git branch –set-upstream-to=origin/dev dev</p>
-</blockquote>
-<p>取回远程某个分支的更新，再与本地的指定分支合并</p>
-<blockquote>
-<p>$ git pull</p>
-</blockquote>
-<p>变基，把本地未push的分叉提交历史整理成直线</p>
-<blockquote>
-<p>$ git rebase</p>
-</blockquote>
-<p>多人协作的模式</p>
-<blockquote>
-<p>首先，可以试图用git push origin <branch-name>推送自己的修改；<br>如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；<br>如果合并有冲突，则解决冲突，并在本地提交；<br>没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！<br>如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch –set-upstream-to <branch-name> origin/<branch-name>。</branch-name></branch-name></branch-name></branch-name></p>
-</blockquote>
-<p>打标签，默认在最新提交的版本</p>
-<blockquote>
-<p>$ git tag v1.0</p>
-</blockquote>
-<p>查看所有标签</p>
-<blockquote>
-<p>$ git tag</p>
-</blockquote>
-<p>按commit id 打标签</p>
-<blockquote>
-<p>$ git tag v0.9 f52c633</p>
-</blockquote>
-<p>查看标签信息想</p>
-<blockquote>
-<p>$ git show <tagname></tagname></p>
-</blockquote>
-<p>创建带有说明的标签</p>
-<blockquote>
-<p>$ git tag -a v0.1 -m “version 0.1 released” 1094adb</p>
-</blockquote>
-<p>推送标签到远程</p>
-<blockquote>
-<p>$ git push origin v1.0</p>
-</blockquote>
-<p>一次性推送所有未推送到远程的标签</p>
-<blockquote>
-<p>$ git push origin –tags</p>
-</blockquote>
-<p>本地删除标签</p>
-<blockquote>
-<p>$ git tag -d v0.9</p>
-</blockquote>
-<p>删除远程标签</p>
-<blockquote>
-<p>$ git push origin :refs/tags/v0.9</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/30/我的第一篇文章/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sfencs">
-      <meta itemprop="description" content="Welcome to my blog">
-      <meta itemprop="image" content="/images/head_pic.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Sfencs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/30/我的第一篇文章/" class="post-title-link" itemprop="http://yoursite.com/index.html">第一篇</a>
-              
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2018/12/01/git命令学习/" rel="next" title="git命令学习">
+                <i class="fa fa-chevron-left"></i> git命令学习
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-30 23:41:34" itemprop="dateCreated datePublished" datetime="2018-11-30T23:41:34+08:00">2018-11-30</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-01 13:04:41" itemprop="dateModified" datetime="2018-12-01T13:04:41+08:00">2018-12-01</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="我的第一篇文章"><a href="#我的第一篇文章" class="headerlink" title="我的第一篇文章"></a>我的第一篇文章</h1><p>最初的想法是想用Django写一个个人博客网站，一可以实现拥有个人网站的成就感，二可以给予自己随便写点东西的平台，三可以当做练习Django的实践。<br>后来了解到hexo+github的方式建立博客真的快捷，省去费劲脑汁设计前端，也不用去添加备案，于是有了这个博客，一天便创建完成，甚是方便，今后也会好好对待。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1114,14 +601,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1142,8 +630,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -1271,6 +768,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-PEP8风格"><span class="nav-number">1.</span> <span class="nav-text">1.PEP8风格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-列表"><span class="nav-number">2.</span> <span class="nav-text">2.列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-函数"><span class="nav-number">3.</span> <span class="nav-text">3.函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-内置函数"><span class="nav-number">4.</span> <span class="nav-text">4.内置函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-类"><span class="nav-number">5.</span> <span class="nav-text">5.类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-并发与并行"><span class="nav-number">6.</span> <span class="nav-text">6.并发与并行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-内置模块"><span class="nav-number">7.</span> <span class="nav-text">7.内置模块</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1434,6 +947,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
 
   
 
