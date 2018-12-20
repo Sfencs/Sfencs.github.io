@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myhead.ico?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="title: linux基础与命令学习（一）categories: [linux,learn] tag: [linux,命令] 该内容多是参考鸟哥的Linux私房菜做的笔记，也有部分摘抄其中  1.date日期 2.cal日历 3.bc计算器 4.reboot重启 5.shutdown关机，必须为root用户 6.su-进入root。回到原来用户用exit 7.ls lsls -als -al">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I&#39;m Sfencs">
+<meta property="og:url" content="http://yoursite.com/2018/12/21/linux基础与命令学习（一）/index.html">
+<meta property="og:site_name" content="I&#39;m Sfencs">
+<meta property="og:description" content="title: linux基础与命令学习（一）categories: [linux,learn] tag: [linux,命令] 该内容多是参考鸟哥的Linux私房菜做的笔记，也有部分摘抄其中  1.date日期 2.cal日历 3.bc计算器 4.reboot重启 5.shutdown关机，必须为root用户 6.su-进入root。回到原来用户用exit 7.ls lsls -als -al">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-20T16:07:28.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="I&#39;m Sfencs">
+<meta name="twitter:description" content="title: linux基础与命令学习（一）categories: [linux,learn] tag: [linux,命令] 该内容多是参考鸟哥的Linux私房菜做的笔记，也有部分摘抄其中  1.date日期 2.cal日历 3.bc计算器 4.reboot重启 5.shutdown关机，必须为root用户 6.su-进入root。回到原来用户用exit 7.ls lsls -als -al">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/21/linux基础与命令学习（一）/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | I'm Sfencs</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6139292fd994369514ac85833fdd0626";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Sfencs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Sfencs'blog</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/linux基础与命令学习（一）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sfencs">
+      <meta itemprop="description" content="Welcome to my blog">
+      <meta itemprop="image" content="/images/head_pic.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Sfencs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-21 00:08:10 / 修改时间：00:07:28" itemprop="dateCreated datePublished" datetime="2018-12-21T00:08:10+08:00">2018-12-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<p>title: linux基础与命令学习（一）<br>categories: [linux,learn]</p>
+<h2 id="tag-linux-命令"><a href="#tag-linux-命令" class="headerlink" title="tag: [linux,命令]"></a>tag: [linux,命令]</h2><hr>
+<p>该内容多是参考鸟哥的Linux私房菜做的笔记，也有部分摘抄其中</p>
+<hr>
+<h3 id="1-date"><a href="#1-date" class="headerlink" title="1.date"></a>1.date</h3><p>日期</p>
+<h3 id="2-cal"><a href="#2-cal" class="headerlink" title="2.cal"></a>2.cal</h3><p>日历</p>
+<h3 id="3-bc"><a href="#3-bc" class="headerlink" title="3.bc"></a>3.bc</h3><p>计算器</p>
+<h3 id="4-reboot"><a href="#4-reboot" class="headerlink" title="4.reboot"></a>4.reboot</h3><p>重启</p>
+<h3 id="5-shutdown"><a href="#5-shutdown" class="headerlink" title="5.shutdown"></a>5.shutdown</h3><p>关机，必须为root用户</p>
+<h3 id="6-su"><a href="#6-su" class="headerlink" title="6.su-"></a>6.su-</h3><p>进入root。回到原来用户用exit</p>
+<h3 id="7-ls"><a href="#7-ls" class="headerlink" title="7.ls"></a>7.ls</h3><blockquote>
+<p>ls<br>ls -a<br>ls -al</p>
+</blockquote>
+<h5 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h5><p>第一个字符代表这个文件是『目录、文件或链接文件等等』：</p>
+<p>当为[ d ]则是目录<br>当为[ - ]则是文件<br>若是[ l ]则表示为连结档(link file)；<br>若是[ b ]则表示为装置文件里面的可供储存的接口设备(可随机存取装置)；<br>若是[ c ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)。  </p>
+<p>接下来的字符中，以三个为一组，且均为『rwx』 的三个参数的组合。其中，[ r ]代表可读(read)、[ w ]代表可写(write)、[ x ]代表可执行(execute)。 要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现减号[ - ]而已。</p>
+<p>第一组为『文件拥有者的权限』，以『install.log』那个文件为例， 该文件的拥有者可以读写，但不可执行；<br>第二组为『同群组的权限』；<br>第三组为『其他非本群组的权限』。</p>
+<h5 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a>第二部分</h5><p>表示有多少档名连结到此节点(i-node)</p>
+<h5 id="第三部分"><a href="#第三部分" class="headerlink" title="第三部分"></a>第三部分</h5><p>表示这个文件(或目录)的『拥有者账号』</p>
+<h5 id="第四部分"><a href="#第四部分" class="headerlink" title="第四部分"></a>第四部分</h5><p>表示这个文件的所属群组</p>
+<h5 id="第五部分"><a href="#第五部分" class="headerlink" title="第五部分"></a>第五部分</h5><p>这个文件的容量大小，默认单位为bytes</p>
+<h5 id="第六部分"><a href="#第六部分" class="headerlink" title="第六部分"></a>第六部分</h5><p>这个文件的建档日期或者是最近的修改日期</p>
+<h5 id="第七部分"><a href="#第七部分" class="headerlink" title="第七部分"></a>第七部分</h5><p>文件的档名</p>
+<h3 id="8-1charp"><a href="#8-1charp" class="headerlink" title="8.1charp"></a>8.1charp</h3><p>改变所属群组  </p>
+<blockquote>
+<p>[root@www ~]# chgrp [-R] group dirname/filename …<br>选项与参数：<br>-R : 进行递归(recursive)的持续变更，亦即连同次目录下的所有文件、目录<br>     都更新成为这个群组之意。常常用在变更某一目录内所有的文件之情况。</p>
+</blockquote>
+<h3 id="8-2-chown"><a href="#8-2-chown" class="headerlink" title="8.2.chown"></a>8.2.chown</h3><p>改变文件拥有者</p>
+<blockquote>
+<p>[root@www ~]# chown [-R] 账号名称 文件或目录<br>[root@www ~]# chown [-R] 账号名称:组名 文件或目录<br>选项与参数：<br>-R : 进行递归(recursive)的持续变更，亦即连同次目录下的所有文件都变更</p>
+</blockquote>
+<h3 id="8-3chmod"><a href="#8-3chmod" class="headerlink" title="8.3chmod"></a>8.3chmod</h3><p>改变文件权限</p>
+<h5 id="使用属性数值"><a href="#使用属性数值" class="headerlink" title="使用属性数值"></a>使用属性数值</h5><blockquote>
+<p>[root@www ~]# chmod [-R] xyz 文件或目录<br>选项与参数：<br>xyz : 为 rwx 属性数值的相加,即三种权限都有为421，都没有为000，三个数加起来即为x，yz同理<br>-R : 进行递归(recursive)的持续变更，亦即连同次目录下的所有文件都会变更</p>
+</blockquote>
+<h5 id="使用符号类型"><a href="#使用符号类型" class="headerlink" title="使用符号类型"></a>使用符号类型</h5><blockquote>
+<p>[root@www ~]# chmod  u=rwx,go=rx  .bashrc</p>
+</blockquote>
+<p>u为用户，g为group，o为other，a为all<br>权限为r，w，x<br>=为赋予权限<br>+为增加权限<br>-为减去权限</p>
+<h3 id="8-4权限类型"><a href="#8-4权限类型" class="headerlink" title="8.4权限类型"></a>8.4权限类型</h3><h5 id="对于文件来说"><a href="#对于文件来说" class="headerlink" title="对于文件来说"></a>对于文件来说</h5><p>r (read)：可读取此一文件的实际内容，如读取文本文件的文字内容等；<br>w (write)：可以编辑、新增或者是修改该文件的内容(但不含删除该文件)；<br>x (execute)：该文件具有可以被系统执行的权限。  </p>
+<h5 id="对于目录来说"><a href="#对于目录来说" class="headerlink" title="对于目录来说"></a>对于目录来说</h5><p>r (read contents in directory)：<br>表示具有读取目录结构列表的权限，所以当你具有读取(r)一个目录的权限时，表示你可以查询该目录下的文件名数据。 所以你就可以利用 ls 这个指令将该目录的内容列表显示出来！</p>
+<p>w (modify contents of directory)：<br>建立新的文件与目录；<br>删除已经存在的文件与目录(不论该文件的权限为何！)<br>将已存在的文件或目录进行更名；<br>搬移该目录内的文件、目录位置。</p>
+<p>x (access directory)：<br>目录的x代表的是用户能否进入该目录成为工作目录的用途！</p>
+<h3 id="9文件类型"><a href="#9文件类型" class="headerlink" title="9文件类型"></a>9文件类型</h3><h5 id="正规文件-regular-file-："><a href="#正规文件-regular-file-：" class="headerlink" title="正规文件(regular file )："></a>正规文件(regular file )：</h5><p>就是一般我们在进行存取的类型的文件，在由 ls -al 所显示出来的属性方面，第一个字符为 [ - ]，例如 [-rwxrwxrwx ]。</p>
+<h5 id="目录-directory-："><a href="#目录-directory-：" class="headerlink" title="目录(directory)："></a>目录(directory)：</h5><p>就是目录，第一个属性为 [ d ]，例如 [drwxrwxrwx]。</p>
+<h5 id="连结档-link-："><a href="#连结档-link-：" class="headerlink" title="连结档(link)："></a>连结档(link)：</h5><p>就是类似Windows系统底下的快捷方式， 第一个属性为 <a href="英文L的小写"> l </a>，例如 [lrwxrwxrwx] ；</p>
+<h5 id="设备与装置文件-device-："><a href="#设备与装置文件-device-：" class="headerlink" title="设备与装置文件(device)："></a>设备与装置文件(device)：</h5><p>与系统周边及储存等相关的一些文件， 通常都集中在/dev这个目录之下！通常又分为两种：</p>
+<p>区块(block)设备档 ：就是一些储存数据， 以提供系统随机存取的接口设备，举例来说，硬盘与软盘等就是啦！ 你可以随机的在硬盘的不同区块读写，这种装置就是成组设备啰！你可以自行查一下/dev/sda看看， 会发现第一个属性为[ b ]喔！</p>
+<p>字符(character)设备文件：亦即是一些串行端口的接口设备， 例如键盘、鼠标等等！这些设备的特色就是『一次性读取』的，不能够截断输出。 举例来说，你不可能让鼠标『跳到』另一个画面，而是『滑动』到另一个地方啊！第一个属性为 [ c ]。</p>
+<h5 id="数据接口文件-sockets-："><a href="#数据接口文件-sockets-：" class="headerlink" title="数据接口文件(sockets)："></a>数据接口文件(sockets)：</h5><p>既然被称为数据接口文件， 这种类型的文件通常被用在网络上的数据承接了。我们可以启动一个程序来监听客户端的要求， 而客户端就可以透过这个socket来进行数据的沟通了。第一个属性为 [ s ]， 最常在/var/run这个目录中看到这种文件类型了。</p>
+<h5 id="数据输送文件-FIFO-pipe-："><a href="#数据输送文件-FIFO-pipe-：" class="headerlink" title="数据输送文件(FIFO, pipe)："></a>数据输送文件(FIFO, pipe)：</h5><p>FIFO也是一种特殊的文件类型，他主要的目的在解决多个程序同时存取一个文件所造成的错误问题。 FIFO是first-in-first-out的缩写。第一个属性为[p] 。</p>
+<h3 id="man-page"><a href="#man-page" class="headerlink" title="man page"></a>man page</h3><h5 id="man-page中的代号"><a href="#man-page中的代号" class="headerlink" title="man page中的代号"></a>man page中的代号</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">代号</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>使用者在shell环境中可以操作的命令或可运行文件</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>系统核心可呼叫的函数与工具等</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>一些常用的函数(function)与函式库(library)，大部分为C的函式库(libc)</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>装置文件的说明，通常在/dev下的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>配置文件或者是某些文件的格式</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>游戏(games)</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>惯例与协议等，例如Linux文件系统、网络协议、ASCII code等等的说明</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>系统管理员可用的管理命令</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>跟kernel有关的文件</td>
+</tr>
+</tbody>
+</table>
+<p>想查看命令在某个代号下的man page，使用<strong>man 代号 命令</strong></p>
+<h5 id="man-page的内容部分"><a href="#man-page的内容部分" class="headerlink" title="man page的内容部分"></a>man page的内容部分</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">NAME</td>
+<td>简短的命令、数据名称说明</td>
+</tr>
+<tr>
+<td style="text-align:center">SYNOPSIS</td>
+<td>简短的命令下达语法(syntax)简介</td>
+</tr>
+<tr>
+<td style="text-align:center">DESCRIPTION</td>
+<td>较为完整的说明</td>
+</tr>
+<tr>
+<td style="text-align:center">OPTIONS</td>
+<td>针对 SYNOPSIS 部分中，有列举的所有可用的选项说明</td>
+</tr>
+<tr>
+<td style="text-align:center">COMMANDS</td>
+<td>当这个程序(软件)在运行的时候，可以在此程序(软件)中下达的命令</td>
+</tr>
+<tr>
+<td style="text-align:center">FILES</td>
+<td>这个程序或数据所使用或参考或连结到的某些文件</td>
+</tr>
+<tr>
+<td style="text-align:center">SEE ALSO</td>
+<td>可以参考的，跟这个命令或数据有相关的其他说明！</td>
+</tr>
+<tr>
+<td style="text-align:center">EXAMPLE</td>
+<td>一些可以参考的范例</td>
+</tr>
+<tr>
+<td style="text-align:center">BUGS</td>
+<td>是否有相关的bug！</td>
+</tr>
+</tbody>
+</table>
+<h5 id="查看man-page时的操作"><a href="#查看man-page时的操作" class="headerlink" title="查看man page时的操作"></a>查看man page时的操作</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">操作</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">空格键</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center">[Page Down]</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center">[Page Up]</td>
+<td>向上翻一页</td>
+</tr>
+<tr>
+<td style="text-align:center">[Home]</td>
+<td>去到第一页</td>
+</tr>
+<tr>
+<td style="text-align:center">[End]</td>
+<td>去到最后一页</td>
+</tr>
+<tr>
+<td style="text-align:center">/string</td>
+<td>向『下』搜寻 string 这个字符串，如果要搜寻 vbird 的话，就输入 /vbird</td>
+</tr>
+<tr>
+<td style="text-align:center">?string</td>
+<td>向『上』搜寻 string 这个字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">n, N</td>
+<td>利用 / 或 ? 来搜寻字符串时，可以用 n 来继续下一个搜寻 (不论是 / 或 ?) ，可以利用 N 来进行『反向』搜寻。举例来说，我以 /vbird 搜寻 vbird 字符串， 那么可以 n 继续往下查询，用 N 往上查询。若以 ?vbird 向上查询 vbird 字符串， 那我可以用 n 继续『向上』查询，用 N 反向查询。</td>
+</tr>
+<tr>
+<td style="text-align:center">q</td>
+<td>结束这次的 man page</td>
+</tr>
+</tbody>
+</table>
+<h5 id="根据命令中的关键词查找命令"><a href="#根据命令中的关键词查找命令" class="headerlink" title="根据命令中的关键词查找命令"></a>根据命令中的关键词查找命令</h5><p>man -f 命令或命令的部分<br>或<br>whatis  [命令或者是数据]    (这个和下面的等效命令需要以root身份执行makewhatis 来创建数据库才能使用)</p>
+<h5 id="根据描述内容的关键词查找命令"><a href="#根据描述内容的关键词查找命令" class="headerlink" title="根据描述内容的关键词查找命令"></a>根据描述内容的关键词查找命令</h5><p>man -k 关键词<br>或<br>apropos [命令或者是数据] </p>
+<h5 id="另一个可以寻求帮助的方式"><a href="#另一个可以寻求帮助的方式" class="headerlink" title="另一个可以寻求帮助的方式"></a>另一个可以寻求帮助的方式</h5><p>info 命令<br>可通过上下左右移动光标到菜单上再按enter进行跳转</p>
+<h3 id="热键"><a href="#热键" class="headerlink" title="热键"></a>热键</h3><h5 id="1-Tab"><a href="#1-Tab" class="headerlink" title="1.Tab"></a>1.Tab</h5><p>[Tab] 接在一串命令的第一个字的后面，则为命令补全；<br>[Tab] 接在一串命令的第二个字以后时，则为『文件补齐』</p>
+<h5 id="2-Ctrl-c"><a href="#2-Ctrl-c" class="headerlink" title="2.[Ctrl]+c"></a>2.[Ctrl]+c</h5><p>命令串终止</p>
+<h5 id="3-Ctrl-d"><a href="#3-Ctrl-d" class="headerlink" title="3.[Ctrl]-d"></a>3.[Ctrl]-d</h5><p>键盘输入结束</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/12/编写高质量python代码/" rel="next" title="编写高质量python代码">
+                <i class="fa fa-chevron-left"></i> 编写高质量python代码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head_pic.png" alt="Sfencs">
+            
+              <p class="site-author-name" itemprop="name">Sfencs</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sfencs" title="GitHub &rarr; https://github.com/sfencs" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:15832381691@163.com" title="E-Mail &rarr; mailto:15832381691@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.cnblogs.com/sfencs-hcy/" title="博客园 &rarr; https://www.cnblogs.com/sfencs-hcy/" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>博客园</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1790667882&website=www.oicqzone.com" title="QQ &rarr; tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1790667882&website=www.oicqzone.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tag-linux-命令"><span class="nav-number">1.</span> <span class="nav-text">tag: [linux,命令]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-date"><span class="nav-number">1.1.</span> <span class="nav-text">1.date</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-cal"><span class="nav-number">1.2.</span> <span class="nav-text">2.cal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-bc"><span class="nav-number">1.3.</span> <span class="nav-text">3.bc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-reboot"><span class="nav-number">1.4.</span> <span class="nav-text">4.reboot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-shutdown"><span class="nav-number">1.5.</span> <span class="nav-text">5.shutdown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-su"><span class="nav-number">1.6.</span> <span class="nav-text">6.su-</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-ls"><span class="nav-number">1.7.</span> <span class="nav-text">7.ls</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一部分"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">第一部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二部分"><span class="nav-number">1.7.0.2.</span> <span class="nav-text">第二部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三部分"><span class="nav-number">1.7.0.3.</span> <span class="nav-text">第三部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第四部分"><span class="nav-number">1.7.0.4.</span> <span class="nav-text">第四部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第五部分"><span class="nav-number">1.7.0.5.</span> <span class="nav-text">第五部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第六部分"><span class="nav-number">1.7.0.6.</span> <span class="nav-text">第六部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第七部分"><span class="nav-number">1.7.0.7.</span> <span class="nav-text">第七部分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1charp"><span class="nav-number">1.8.</span> <span class="nav-text">8.1charp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-chown"><span class="nav-number">1.9.</span> <span class="nav-text">8.2.chown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3chmod"><span class="nav-number">1.10.</span> <span class="nav-text">8.3chmod</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用属性数值"><span class="nav-number">1.10.0.1.</span> <span class="nav-text">使用属性数值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用符号类型"><span class="nav-number">1.10.0.2.</span> <span class="nav-text">使用符号类型</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4权限类型"><span class="nav-number">1.11.</span> <span class="nav-text">8.4权限类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对于文件来说"><span class="nav-number">1.11.0.1.</span> <span class="nav-text">对于文件来说</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对于目录来说"><span class="nav-number">1.11.0.2.</span> <span class="nav-text">对于目录来说</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9文件类型"><span class="nav-number">1.12.</span> <span class="nav-text">9文件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#正规文件-regular-file-："><span class="nav-number">1.12.0.1.</span> <span class="nav-text">正规文件(regular file )：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#目录-directory-："><span class="nav-number">1.12.0.2.</span> <span class="nav-text">目录(directory)：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#连结档-link-："><span class="nav-number">1.12.0.3.</span> <span class="nav-text">连结档(link)：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设备与装置文件-device-："><span class="nav-number">1.12.0.4.</span> <span class="nav-text">设备与装置文件(device)：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据接口文件-sockets-："><span class="nav-number">1.12.0.5.</span> <span class="nav-text">数据接口文件(sockets)：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据输送文件-FIFO-pipe-："><span class="nav-number">1.12.0.6.</span> <span class="nav-text">数据输送文件(FIFO, pipe)：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#man-page"><span class="nav-number">1.13.</span> <span class="nav-text">man page</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#man-page中的代号"><span class="nav-number">1.13.0.1.</span> <span class="nav-text">man page中的代号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#man-page的内容部分"><span class="nav-number">1.13.0.2.</span> <span class="nav-text">man page的内容部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看man-page时的操作"><span class="nav-number">1.13.0.3.</span> <span class="nav-text">查看man page时的操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#根据命令中的关键词查找命令"><span class="nav-number">1.13.0.4.</span> <span class="nav-text">根据命令中的关键词查找命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#根据描述内容的关键词查找命令"><span class="nav-number">1.13.0.5.</span> <span class="nav-text">根据描述内容的关键词查找命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#另一个可以寻求帮助的方式"><span class="nav-number">1.13.0.6.</span> <span class="nav-text">另一个可以寻求帮助的方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#热键"><span class="nav-number">1.14.</span> <span class="nav-text">热键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Tab"><span class="nav-number">1.14.0.1.</span> <span class="nav-text">1.Tab</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Ctrl-c"><span class="nav-number">1.14.0.2.</span> <span class="nav-text">2.[Ctrl]+c</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Ctrl-d"><span class="nav-number">1.14.0.3.</span> <span class="nav-text">3.[Ctrl]-d</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sfencs</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.5.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-  nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
