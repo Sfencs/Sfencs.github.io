@@ -115,27 +115,25 @@
 
 
 
-  <meta name="description" content="前言今天开始学习下爬虫个人觉得爬虫这东西很有意思，而且有python基础再看看书和网上的文章应该不难重要的是多练习 requests首先用requests模块中的get与post方式弄整个下了网页get:12345678910import requests&apos;&apos;&apos;get方式获取自己博客园的页面源代码&apos;&apos;&apos;html = requests.get(&apos;https://www.cnblogs.com/sf">
-<meta name="keywords" content="爬虫,spider,SAO,get,post">
+  <meta name="description" content="前言之前是直接构造re去找内容，找的很是费劲，还容易找错，用了xPath方便了许多 xPath使用xPath在lxml模块中使用方法：123import lxml.htmlselector = lxml.html.fromstring(&apos;网页字符串&apos;)info = selector.xpath(&apos;xPath语句&apos;) 网页字符串用requests去搞info得到的是一个列表 xPath语法1.通用">
+<meta name="keywords" content="爬虫,spider，onepiece，title，tieba，xPath">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python爬虫学习（一）">
-<meta property="og:url" content="http://yoursite.com/2018/12/26/python爬虫学习（一）/index.html">
+<meta property="og:title" content="python爬虫学习（二）">
+<meta property="og:url" content="http://yoursite.com/2018/12/26/python爬虫学习（二）/index.html">
 <meta property="og:site_name" content="I&#39;m Sfencs">
-<meta property="og:description" content="前言今天开始学习下爬虫个人觉得爬虫这东西很有意思，而且有python基础再看看书和网上的文章应该不难重要的是多练习 requests首先用requests模块中的get与post方式弄整个下了网页get:12345678910import requests&apos;&apos;&apos;get方式获取自己博客园的页面源代码&apos;&apos;&apos;html = requests.get(&apos;https://www.cnblogs.com/sf">
+<meta property="og:description" content="前言之前是直接构造re去找内容，找的很是费劲，还容易找错，用了xPath方便了许多 xPath使用xPath在lxml模块中使用方法：123import lxml.htmlselector = lxml.html.fromstring(&apos;网页字符串&apos;)info = selector.xpath(&apos;xPath语句&apos;) 网页字符串用requests去搞info得到的是一个列表 xPath语法1.通用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.cnblogs.com/images/cnblogs_com/sfencs-hcy/1370850/o_SAO小说爬虫.png">
-<meta property="og:updated_time" content="2018-12-26T05:57:33.983Z">
+<meta property="og:updated_time" content="2018-12-26T07:59:39.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python爬虫学习（一）">
-<meta name="twitter:description" content="前言今天开始学习下爬虫个人觉得爬虫这东西很有意思，而且有python基础再看看书和网上的文章应该不难重要的是多练习 requests首先用requests模块中的get与post方式弄整个下了网页get:12345678910import requests&apos;&apos;&apos;get方式获取自己博客园的页面源代码&apos;&apos;&apos;html = requests.get(&apos;https://www.cnblogs.com/sf">
-<meta name="twitter:image" content="https://www.cnblogs.com/images/cnblogs_com/sfencs-hcy/1370850/o_SAO小说爬虫.png">
+<meta name="twitter:title" content="python爬虫学习（二）">
+<meta name="twitter:description" content="前言之前是直接构造re去找内容，找的很是费劲，还容易找错，用了xPath方便了许多 xPath使用xPath在lxml模块中使用方法：123import lxml.htmlselector = lxml.html.fromstring(&apos;网页字符串&apos;)info = selector.xpath(&apos;xPath语句&apos;) 网页字符串用requests去搞info得到的是一个列表 xPath语法1.通用">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/26/python爬虫学习（一）/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/26/python爬虫学习（二）/">
 
 
 
@@ -145,7 +143,7 @@
   };
 </script>
 
-  <title>python爬虫学习（一） | I'm Sfencs</title>
+  <title>python爬虫学习（二） | I'm Sfencs</title>
   
 
 
@@ -358,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/26/python爬虫学习（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/26/python爬虫学习（二）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sfencs">
@@ -375,7 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python爬虫学习（一）
+          <h1 class="post-title" itemprop="name headline">python爬虫学习（二）
               
             
           </h1>
@@ -400,7 +398,7 @@
                 
               
 
-              <time title="创建时间：2018-12-26 12:40:40 / 修改时间：13:57:33" itemprop="dateCreated datePublished" datetime="2018-12-26T12:40:40+08:00">2018-12-26</time>
+              <time title="创建时间：2018-12-26 16:00:30 / 修改时间：15:59:39" itemprop="dateCreated datePublished" datetime="2018-12-26T16:00:30+08:00">2018-12-26</time>
             
 
             
@@ -457,17 +455,20 @@
 
       
         <a id="more"></a>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>今天开始学习下爬虫<br>个人觉得爬虫这东西很有意思，而且有python基础再看看书和网上的文章应该不难<br>重要的是多练习</p>
-<h3 id="requests"><a href="#requests" class="headerlink" title="requests"></a>requests</h3><p>首先用requests模块中的get与post方式弄整个下了网页<br>get:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">get方式获取自己博客园的页面源代码</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">html = requests.get(<span class="string">'https://www.cnblogs.com/sfencs-hcy/'</span>)</span><br><span class="line">html_bytes = html.content</span><br><span class="line">html_str = html_bytes.decode()</span><br><span class="line">print(html_str)</span><br></pre></td></tr></table></figure></p>
-<p>post:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用post方式提交获取页面</span></span><br><span class="line"><span class="string">使用简单表达式提取内容</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">'name'</span>: <span class="string">'kingname'</span>,</span><br><span class="line">    <span class="string">'password'</span>: <span class="string">'1234567'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html = requests.post(</span><br><span class="line">    <span class="string">'http://exercise.kingname.info/exercise_requests_post'</span>,</span><br><span class="line">    data=data)</span><br><span class="line">print(html.content.decode())</span><br><span class="line">html = requests.post(</span><br><span class="line">    <span class="string">'http://exercise.kingname.info/exercise_requests_post'</span>,</span><br><span class="line">    json=data)</span><br><span class="line">print(html.content.decode())</span><br><span class="line"></span><br><span class="line">title = re.findall(</span><br><span class="line">    <span class="string">'title&gt;(.*?)&lt;/'</span>,</span><br><span class="line">    html.content.decode(),</span><br><span class="line">    re.S)  <span class="comment"># re.s表示“.”可以匹配“\n”</span></span><br><span class="line">print(title[<span class="number">0</span>])</span><br><span class="line">content = re.findall(<span class="string">'p&gt;(.*?)&lt;/p'</span>, html.content.decode(), re.S)</span><br><span class="line">print(<span class="string">'\n'</span>.join(content))</span><br></pre></td></tr></table></figure></p>
-<p>其中：</p>
-<ul>
-<li>要想得到str必须要将获得的content进行decode，这里默认utf8，有的网站也会是GBK、GB2312等，都试一试</li>
-<li>get方式是下载的我的博客园页面，post是《Python爬虫开发从入门到实战》的例子</li>
-<li>在post方式中用了简单的re匹配了一些内容，re.S表示“.”可以匹配“\n”</li>
-</ul>
-<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p>爬取了<a href="http://www.wuyanxia.net" target="_blank" rel="noopener">http://www.wuyanxia.net</a> 网站的刀剑神域小说全部章节<br><img src="https://www.cnblogs.com/images/cnblogs_com/sfencs-hcy/1370850/o_SAO小说爬虫.png" alt="image"></p>
-<p>看着目录中.txt文件蹭蹭的自动增加，自己心里感觉是舒服的<br>这个非常简单的爬小说，总结一下就是找不同。。。，找网页源代码中用什么符号能唯一包含要爬取的内容，然后用re匹配出来，当然遇到连接的地方，先把链接爬下来，再进链接里爬<br>最后代码放到了github上<a href="https://github.com/Sfencs/spider-practice/tree/master/spider-code/SAO-novel" target="_blank" rel="noopener">https://github.com/Sfencs/spider-practice/tree/master/spider-code/SAO-novel</a> ，来记录学习过程</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前是直接构造re去找内容，找的很是费劲，还容易找错，用了xPath方便了许多</p>
+<h3 id="xPath使用"><a href="#xPath使用" class="headerlink" title="xPath使用"></a>xPath使用</h3><p>xPath在lxml模块中<br>使用方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lxml.html</span><br><span class="line">selector = lxml.html.fromstring(<span class="string">'网页字符串'</span>)</span><br><span class="line">info = selector.xpath(<span class="string">'xPath语句'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>网页字符串用requests去搞<br>info得到的是一个列表</p>
+<h3 id="xPath语法"><a href="#xPath语法" class="headerlink" title="xPath语法"></a>xPath语法</h3><h5 id="1-通用语法"><a href="#1-通用语法" class="headerlink" title="1.通用语法"></a>1.通用语法</h5><p>获取文本：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//标签<span class="number">1</span>[@属性=<span class="string">"属性值"</span>]/标签<span class="number">2</span>[@属性=<span class="string">"属性值"</span>]/.../text()</span><br></pre></td></tr></table></figure></p>
+<p>获取属性：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//标签<span class="number">1</span>[@属性=<span class="string">"属性值"</span>]/标签<span class="number">2</span>[@属性=<span class="string">"属性值"</span>]/.../@属性</span><br></pre></td></tr></table></figure></p>
+<p>这里属性=后的引号必须为双引号</p>
+<h5 id="2-第一个标签选择"><a href="#2-第一个标签选择" class="headerlink" title="2.第一个标签选择"></a>2.第一个标签选择</h5><p>如果第一个为html标签，则最开始不用双斜线，用单斜线<br>没必要从头开始写标签，只要能准确找到就行  </p>
+<h5 id="3-标签的属性需要再写，不需要时最好不写"><a href="#3-标签的属性需要再写，不需要时最好不写" class="headerlink" title="3.标签的属性需要再写，不需要时最好不写"></a>3.标签的属性需要再写，不需要时最好不写</h5><h5 id="4-特殊情况"><a href="#4-特殊情况" class="headerlink" title="4.特殊情况"></a>4.特殊情况</h5><h6 id="找属性以相同字符串开头的"><a href="#找属性以相同字符串开头的" class="headerlink" title="找属性以相同字符串开头的"></a>找属性以相同字符串开头的</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//标签[starts-<span class="keyword">with</span>(@属性名,<span class="string">'相同的开头'</span>)]</span><br></pre></td></tr></table></figure>
+<h6 id="找属性包含相同内容的"><a href="#找属性包含相同内容的" class="headerlink" title="找属性包含相同内容的"></a>找属性包含相同内容的</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//标签[contains(@属性名,<span class="string">'相同的内容'</span>)]</span><br></pre></td></tr></table></figure>
+<h6 id="用xPath先抓大，再抓小"><a href="#用xPath先抓大，再抓小" class="headerlink" title="用xPath先抓大，再抓小"></a>用xPath先抓大，再抓小</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lxml.html</span><br><span class="line">selector = lxml.html.fromstring(<span class="string">'网页字符串'</span>)</span><br><span class="line">block = selector.xpath(<span class="string">'//div[@class="useful"]'</span>)</span><br><span class="line">info_list=block[<span class="number">0</span>].xpath(<span class="string">'ul/li/text()'</span>)</span><br></pre></td></tr></table></figure>
+<p>抓小的时候，也就是用xpath的返回值再xpath时，xpath语句最前边不用再加斜线了</p>
+<h6 id="只要字符串"><a href="#只要字符串" class="headerlink" title="只要字符串"></a>只要字符串</h6><p>想要抓取部分中的全部text，又不想要里边的标签<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">block = selector.xpath(<span class="string">'//div[@class="useful"]'</span>)</span><br><span class="line">info=block[<span class="number">0</span>].xpath(<span class="string">'string(.)'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>同样是先抓大，然后去标签，但是这里返回的直接是字符串，不是列表了</p>
+<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p>简单的用xpath爬了百度海贼王吧的首页帖子标题，练习了一下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lxml.html</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    html_ = requests.get(</span><br><span class="line">        <span class="string">'https://tieba.baidu.com/f?kw=%E6%B5%B7%E8%B4%BC%E7%8E%8B&amp;ie=utf-8'</span>)</span><br><span class="line">    html_str = html_.content.decode()</span><br><span class="line">    <span class="comment"># print(html_str)</span></span><br><span class="line"></span><br><span class="line">    selector = lxml.html.fromstring(html_str)</span><br><span class="line">    info = selector.xpath(</span><br><span class="line">        <span class="string">'//div[@class="threadlist_title pull_left j_th_tit "]/a[@rel="noreferrer"]/text()'</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> info:</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -493,13 +494,7 @@
           
             <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
           
-            <a href="/tags/spider/" rel="tag"># spider</a>
-          
-            <a href="/tags/SAO/" rel="tag"># SAO</a>
-          
-            <a href="/tags/get/" rel="tag"># get</a>
-          
-            <a href="/tags/post/" rel="tag"># post</a>
+            <a href="/tags/spider，onepiece，title，tieba，xPath/" rel="tag"># spider，onepiece，title，tieba，xPath</a>
           
         </div>
       
@@ -512,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/21/linux基础与命令学习（一）/" rel="next" title="linux基础与命令学习（一）">
-                <i class="fa fa-chevron-left"></i> linux基础与命令学习（一）
+              <a href="/2018/12/26/python爬虫学习（一）/" rel="next" title="python爬虫学习（一）">
+                <i class="fa fa-chevron-left"></i> python爬虫学习（一）
               </a>
             
           </div>
@@ -521,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/26/python爬虫学习（二）/" rel="prev" title="python爬虫学习（二）">
-                python爬虫学习（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -741,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#requests"><span class="nav-number">2.</span> <span class="nav-text">requests</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战"><span class="nav-number">3.</span> <span class="nav-text">实战</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xPath使用"><span class="nav-number">2.</span> <span class="nav-text">xPath使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xPath语法"><span class="nav-number">3.</span> <span class="nav-text">xPath语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-通用语法"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.通用语法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-第一个标签选择"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.第一个标签选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-标签的属性需要再写，不需要时最好不写"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.标签的属性需要再写，不需要时最好不写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-特殊情况"><span class="nav-number">3.0.4.</span> <span class="nav-text">4.特殊情况</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#找属性以相同字符串开头的"><span class="nav-number">3.0.4.1.</span> <span class="nav-text">找属性以相同字符串开头的</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#找属性包含相同内容的"><span class="nav-number">3.0.4.2.</span> <span class="nav-text">找属性包含相同内容的</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用xPath先抓大，再抓小"><span class="nav-number">3.0.4.3.</span> <span class="nav-text">用xPath先抓大，再抓小</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#只要字符串"><span class="nav-number">3.0.4.4.</span> <span class="nav-text">只要字符串</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#实战"><span class="nav-number">4.</span> <span class="nav-text">实战</span></a></li></div>
             
 
           </div>
