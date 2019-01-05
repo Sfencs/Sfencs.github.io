@@ -115,27 +115,27 @@
 
 
 
-  <meta name="description" content="前言今天开始学习下爬虫个人觉得爬虫这东西很有意思，而且有python基础再看看书和网上的文章应该不难重要的是多练习 requests首先用requests模块中的get与post方式弄整个下了网页get:12345678910import requests&apos;&apos;&apos;get方式获取自己博客园的页面源代码&apos;&apos;&apos;html = requests.get(&apos;https://www.cnblogs.com/sf">
-<meta name="keywords" content="爬虫,spider,SAO,get,post">
+  <meta name="description" content="前言这次使用与数据库结合的方式进行爬取，数据库选择MongoDB与redis，MongoDB的使用在https://www.cnblogs.com/sfencs-hcy/p/10182348.html 中有记录过，这里简单记录下redis的使用 redis安装安装是在window下安装的，到https://github.com/ServiceStack/redis-windows/blob/ma">
+<meta name="keywords" content="爬虫,spider,MongoDB,redis,嫌疑人x的献身">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python爬虫学习（一）">
-<meta property="og:url" content="http://yoursite.com/2018/12/26/python爬虫学习（一）/index.html">
+<meta property="og:title" content="python爬虫学习（三）">
+<meta property="og:url" content="http://yoursite.com/2019/01/05/python爬虫学习（三）/index.html">
 <meta property="og:site_name" content="I&#39;m Sfencs">
-<meta property="og:description" content="前言今天开始学习下爬虫个人觉得爬虫这东西很有意思，而且有python基础再看看书和网上的文章应该不难重要的是多练习 requests首先用requests模块中的get与post方式弄整个下了网页get:12345678910import requests&apos;&apos;&apos;get方式获取自己博客园的页面源代码&apos;&apos;&apos;html = requests.get(&apos;https://www.cnblogs.com/sf">
+<meta property="og:description" content="前言这次使用与数据库结合的方式进行爬取，数据库选择MongoDB与redis，MongoDB的使用在https://www.cnblogs.com/sfencs-hcy/p/10182348.html 中有记录过，这里简单记录下redis的使用 redis安装安装是在window下安装的，到https://github.com/ServiceStack/redis-windows/blob/ma">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.cnblogs.com/images/cnblogs_com/sfencs-hcy/1370850/o_SAO小说爬虫.png">
-<meta property="og:updated_time" content="2018-12-26T05:57:33.983Z">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/sfencs-hcy/1370850/o_redis.png">
+<meta property="og:updated_time" content="2019-01-05T10:41:19.301Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python爬虫学习（一）">
-<meta name="twitter:description" content="前言今天开始学习下爬虫个人觉得爬虫这东西很有意思，而且有python基础再看看书和网上的文章应该不难重要的是多练习 requests首先用requests模块中的get与post方式弄整个下了网页get:12345678910import requests&apos;&apos;&apos;get方式获取自己博客园的页面源代码&apos;&apos;&apos;html = requests.get(&apos;https://www.cnblogs.com/sf">
-<meta name="twitter:image" content="https://www.cnblogs.com/images/cnblogs_com/sfencs-hcy/1370850/o_SAO小说爬虫.png">
+<meta name="twitter:title" content="python爬虫学习（三）">
+<meta name="twitter:description" content="前言这次使用与数据库结合的方式进行爬取，数据库选择MongoDB与redis，MongoDB的使用在https://www.cnblogs.com/sfencs-hcy/p/10182348.html 中有记录过，这里简单记录下redis的使用 redis安装安装是在window下安装的，到https://github.com/ServiceStack/redis-windows/blob/ma">
+<meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/sfencs-hcy/1370850/o_redis.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/26/python爬虫学习（一）/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/05/python爬虫学习（三）/">
 
 
 
@@ -145,7 +145,7 @@
   };
 </script>
 
-  <title>python爬虫学习（一） | I'm Sfencs</title>
+  <title>python爬虫学习（三） | I'm Sfencs</title>
   
 
 
@@ -358,7 +358,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/26/python爬虫学习（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/05/python爬虫学习（三）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sfencs">
@@ -375,7 +375,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python爬虫学习（一）
+          <h1 class="post-title" itemprop="name headline">python爬虫学习（三）
               
             
           </h1>
@@ -400,7 +400,7 @@
                 
               
 
-              <time title="创建时间：2018-12-26 12:40:40 / 修改时间：13:57:33" itemprop="dateCreated datePublished" datetime="2018-12-26T12:40:40+08:00">2018-12-26</time>
+              <time title="创建时间：2019-01-05 18:41:54 / 修改时间：18:41:19" itemprop="dateCreated datePublished" datetime="2019-01-05T18:41:54+08:00">2019-01-05</time>
             
 
             
@@ -457,17 +457,45 @@
 
       
         <a id="more"></a>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>今天开始学习下爬虫<br>个人觉得爬虫这东西很有意思，而且有python基础再看看书和网上的文章应该不难<br>重要的是多练习</p>
-<h3 id="requests"><a href="#requests" class="headerlink" title="requests"></a>requests</h3><p>首先用requests模块中的get与post方式弄整个下了网页<br>get:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">get方式获取自己博客园的页面源代码</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">html = requests.get(<span class="string">'https://www.cnblogs.com/sfencs-hcy/'</span>)</span><br><span class="line">html_bytes = html.content</span><br><span class="line">html_str = html_bytes.decode()</span><br><span class="line">print(html_str)</span><br></pre></td></tr></table></figure></p>
-<p>post:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用post方式提交获取页面</span></span><br><span class="line"><span class="string">使用简单表达式提取内容</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">'name'</span>: <span class="string">'kingname'</span>,</span><br><span class="line">    <span class="string">'password'</span>: <span class="string">'1234567'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html = requests.post(</span><br><span class="line">    <span class="string">'http://exercise.kingname.info/exercise_requests_post'</span>,</span><br><span class="line">    data=data)</span><br><span class="line">print(html.content.decode())</span><br><span class="line">html = requests.post(</span><br><span class="line">    <span class="string">'http://exercise.kingname.info/exercise_requests_post'</span>,</span><br><span class="line">    json=data)</span><br><span class="line">print(html.content.decode())</span><br><span class="line"></span><br><span class="line">title = re.findall(</span><br><span class="line">    <span class="string">'title&gt;(.*?)&lt;/'</span>,</span><br><span class="line">    html.content.decode(),</span><br><span class="line">    re.S)  <span class="comment"># re.s表示“.”可以匹配“\n”</span></span><br><span class="line">print(title[<span class="number">0</span>])</span><br><span class="line">content = re.findall(<span class="string">'p&gt;(.*?)&lt;/p'</span>, html.content.decode(), re.S)</span><br><span class="line">print(<span class="string">'\n'</span>.join(content))</span><br></pre></td></tr></table></figure></p>
-<p>其中：</p>
-<ul>
-<li>要想得到str必须要将获得的content进行decode，这里默认utf8，有的网站也会是GBK、GB2312等，都试一试</li>
-<li>get方式是下载的我的博客园页面，post是《Python爬虫开发从入门到实战》的例子</li>
-<li>在post方式中用了简单的re匹配了一些内容，re.S表示“.”可以匹配“\n”</li>
-</ul>
-<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p>爬取了<a href="http://www.wuyanxia.net" target="_blank" rel="noopener">http://www.wuyanxia.net</a> 网站的刀剑神域小说全部章节<br><img src="https://www.cnblogs.com/images/cnblogs_com/sfencs-hcy/1370850/o_SAO小说爬虫.png" alt="image"></p>
-<p>看着目录中.txt文件蹭蹭的自动增加，自己心里感觉是舒服的<br>这个非常简单的爬小说，总结一下就是找不同。。。，找网页源代码中用什么符号能唯一包含要爬取的内容，然后用re匹配出来，当然遇到连接的地方，先把链接爬下来，再进链接里爬<br>最后代码放到了github上<a href="https://github.com/Sfencs/spider-practice/tree/master/spider-code/SAO-novel" target="_blank" rel="noopener">https://github.com/Sfencs/spider-practice/tree/master/spider-code/SAO-novel</a> ，来记录学习过程</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这次使用与数据库结合的方式进行爬取，数据库选择MongoDB与redis，MongoDB的使用在<a href="https://www.cnblogs.com/sfencs-hcy/p/10182348.html" target="_blank" rel="noopener">https://www.cnblogs.com/sfencs-hcy/p/10182348.html</a> 中有记录过，这里简单记录下redis的使用</p>
+<h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>安装是在window下安装的，到<a href="https://github.com/ServiceStack/redis-windows/blob/master/downloads/redis-latest.zip" target="_blank" rel="noopener">https://github.com/ServiceStack/redis-windows/blob/master/downloads/redis-latest.zip</a> 下下载redis-latest，解压后在当前目录下执行 redis-server.exe redis.windows.conf<br><img src="http://images.cnblogs.com/cnblogs_com/sfencs-hcy/1370850/o_redis.png" alt="image"><br>只做上面的操作，不能把redis安装为系统服务，要想安装为系统服务需要执行</p>
+<blockquote>
+<p>.\redis-server.exe –service-install .\redis.windows.conf  </p>
+</blockquote>
+<p>然后启动服务</p>
+<blockquote>
+<p>.\redis-server.exe –service-start</p>
+</blockquote>
+<h5 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h5><p>可以在redis的交互环境下操作<br>在安装目录下执行</p>
+<blockquote>
+<p>.\redis-cli.exe</p>
+</blockquote>
+<p>进入交互环境</p>
+<h6 id="列表操作"><a href="#列表操作" class="headerlink" title="列表操作"></a>列表操作</h6><p>列表相当于一个双向队列,key是列表名</p>
+<blockquote>
+<p>lpush key value1 value2<br>lpop key<br>rpush key value1 value2<br>rpop key  </p>
+</blockquote>
+<p>查看列表长度</p>
+<blockquote>
+<p>llen key</p>
+</blockquote>
+<p>查看列表的内容</p>
+<blockquote>
+<p>lrange key start end</p>
+</blockquote>
+<h6 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h6><p>集合中没有顺序，值不重复</p>
+<blockquote>
+<p>sadd key value1 value2<br>spop key count</p>
+</blockquote>
+<p>查看集合长度</p>
+<blockquote>
+<p>scard key</p>
+</blockquote>
+<h3 id="python操作redis"><a href="#python操作redis" class="headerlink" title="python操作redis"></a>python操作redis</h3><p>pip install redis</p>
+<h5 id="连接redis"><a href="#连接redis" class="headerlink" title="连接redis"></a>连接redis</h5><p>如果安装在本地，也没有改端口，也没有改密码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client=redis.StrictRedis()</span><br></pre></td></tr></table></figure></p>
+<p>完整连接<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client=redis.StrictRedis(host=<span class="string">''</span>,port=<span class="number">6379</span>,password=<span class="string">'123456'</span>)</span><br></pre></td></tr></table></figure></p>
+<h5 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h5><p>和交互环境的基本一致<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">client.lpush(key,value)</span><br><span class="line">len=client.llen(key)</span><br><span class="line">value=client.lpop(key)</span><br><span class="line">client.sadd(key,value)</span><br><span class="line">val=client.spop(key)</span><br><span class="line">len=client.scard(key)</span><br></pre></td></tr></table></figure></p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>爬取了嫌疑人x的献身小说，使用redis存储链接，mongodb存储内容<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"><span class="keyword">import</span> lxml.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">client_mongo = pymongo.MongoClient(host=<span class="string">'localhost'</span>, port=<span class="number">27017</span>)</span><br><span class="line">client_redis = redis.StrictRedis()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_url_to_redis</span><span class="params">()</span>:</span></span><br><span class="line">    html = requests.get(<span class="string">"http://dongyeguiwu.zuopinj.com/5532/"</span>)</span><br><span class="line">    html_str = html.content.decode()</span><br><span class="line">    selector = lxml.html.fromstring(html_str)</span><br><span class="line"></span><br><span class="line">    url_list = selector.xpath(<span class="string">'//div[@class="book_list"]/ul/li/a/@href'</span>)</span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> url_list:</span><br><span class="line">        client_redis.lpush(<span class="string">"url_queue"</span>, url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    get_url_to_redis()</span><br><span class="line">    db = client_mongo[<span class="string">"spider"</span>]</span><br><span class="line">    collection = db[<span class="string">"xianyiriX"</span>]</span><br><span class="line">    <span class="keyword">while</span> client_redis.llen(<span class="string">"url_queue"</span>) &gt; <span class="number">0</span>:</span><br><span class="line">        url = client_redis.rpop(<span class="string">"url_queue"</span>)</span><br><span class="line">        html_str = requests.get(url).content.decode()</span><br><span class="line">        selector = lxml.html.fromstring(html_str)</span><br><span class="line">        chapter = selector.xpath(<span class="string">'//div[@class="h1title"]/h1/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">        <span class="comment"># 好像直接取p会自动根据里边其他标签分割成部分放入列表</span></span><br><span class="line">        content = selector.xpath(<span class="string">'//div[@id="htmlContent"]/p/text()'</span>)</span><br><span class="line">        <span class="comment"># content.replace('&lt;br&gt;','')</span></span><br><span class="line">        dict = &#123;<span class="string">"chapter"</span>: chapter, <span class="string">"content"</span>: <span class="string">'\n'</span>.join(content)&#125;</span><br><span class="line">        collection.insert_one(dict)</span><br><span class="line">        print(<span class="string">"添加:"</span> + chapter)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -495,11 +523,11 @@
           
             <a href="/tags/spider/" rel="tag"># spider</a>
           
-            <a href="/tags/SAO/" rel="tag"># SAO</a>
+            <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
           
-            <a href="/tags/get/" rel="tag"># get</a>
+            <a href="/tags/redis/" rel="tag"># redis</a>
           
-            <a href="/tags/post/" rel="tag"># post</a>
+            <a href="/tags/嫌疑人x的献身/" rel="tag"># 嫌疑人x的献身</a>
           
         </div>
       
@@ -512,8 +540,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/21/linux基础与命令学习（一）/" rel="next" title="linux基础与命令学习（一）">
-                <i class="fa fa-chevron-left"></i> linux基础与命令学习（一）
+              <a href="/2018/12/26/python爬虫学习（二）/" rel="next" title="python爬虫学习（二）">
+                <i class="fa fa-chevron-left"></i> python爬虫学习（二）
               </a>
             
           </div>
@@ -521,10 +549,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/26/python爬虫学习（二）/" rel="prev" title="python爬虫学习（二）">
-                python爬虫学习（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -753,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#requests"><span class="nav-number">2.</span> <span class="nav-text">requests</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战"><span class="nav-number">3.</span> <span class="nav-text">实战</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis"><span class="nav-number">2.</span> <span class="nav-text">redis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">2.0.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#操作"><span class="nav-number">2.0.2.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#列表操作"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">列表操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#集合操作"><span class="nav-number">2.0.2.2.</span> <span class="nav-text">集合操作</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#python操作redis"><span class="nav-number">3.</span> <span class="nav-text">python操作redis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接redis"><span class="nav-number">3.0.1.</span> <span class="nav-text">连接redis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简单操作"><span class="nav-number">3.0.2.</span> <span class="nav-text">简单操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">4.</span> <span class="nav-text">练习</span></a></li></div>
             
 
           </div>
