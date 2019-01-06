@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myhead.ico?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言对于使用ajax请求来渲染页面的网页，源代码中是没有完整的信息的，可以通过从浏览器的开发者工具中找到ajax的请求，再用requests的方式去获取，但是有的ajax请求构造的非常复杂，所以不如使用模拟浏览器的方式，获取已经加载完成的内容来爬取 seleniumselenium是一个网页自动化测试工具，可以用它来操作网页中的元素 安装 pip install selenium  安装浏览器驱">
+<meta name="keywords" content="爬虫,spider,selenium,ajax,模拟浏览器,无名之辈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬虫学习（四）">
+<meta property="og:url" content="http://yoursite.com/2019/01/07/python爬虫学习（四）/index.html">
+<meta property="og:site_name" content="I&#39;m Sfencs">
+<meta property="og:description" content="前言对于使用ajax请求来渲染页面的网页，源代码中是没有完整的信息的，可以通过从浏览器的开发者工具中找到ajax的请求，再用requests的方式去获取，但是有的ajax请求构造的非常复杂，所以不如使用模拟浏览器的方式，获取已经加载完成的内容来爬取 seleniumselenium是一个网页自动化测试工具，可以用它来操作网页中的元素 安装 pip install selenium  安装浏览器驱">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-06T16:16:24.801Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python爬虫学习（四）">
+<meta name="twitter:description" content="前言对于使用ajax请求来渲染页面的网页，源代码中是没有完整的信息的，可以通过从浏览器的开发者工具中找到ajax的请求，再用requests的方式去获取，但是有的ajax请求构造的非常复杂，所以不如使用模拟浏览器的方式，获取已经加载完成的内容来爬取 seleniumselenium是一个网页自动化测试工具，可以用它来操作网页中的元素 安装 pip install selenium  安装浏览器驱">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/07/python爬虫学习（四）/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python爬虫学习（四） | I'm Sfencs</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6139292fd994369514ac85833fdd0626";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Sfencs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Sfencs'blog</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/07/python爬虫学习（四）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sfencs">
+      <meta itemprop="description" content="Welcome to my blog">
+      <meta itemprop="image" content="/images/head_pic.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Sfencs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python爬虫学习（四）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-07 00:16:51 / 修改时间：00:16:24" itemprop="dateCreated datePublished" datetime="2019-01-07T00:16:51+08:00">2019-01-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a id="more"></a>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于使用ajax请求来渲染页面的网页，源代码中是没有完整的信息的，可以通过从浏览器的开发者工具中找到ajax的请求，再用requests的方式去获取，但是有的ajax请求构造的非常复杂，所以不如使用模拟浏览器的方式，获取已经加载完成的内容来爬取</p>
+<h3 id="selenium"><a href="#selenium" class="headerlink" title="selenium"></a>selenium</h3><p>selenium是一个网页自动化测试工具，可以用它来操作网页中的元素</p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><blockquote>
+<p>pip install selenium</p>
+</blockquote>
+<p>安装浏览器驱动，下载chromedriver</p>
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><h6 id="等待信息"><a href="#等待信息" class="headerlink" title="等待信息"></a>等待信息</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">driver=webdriver.Chrome(<span class="string">r'D:\chromeDriver\chromedriver_win32\chromedriver.exe'</span>)</span><br><span class="line">driver.get(<span class="string">'http://exercise.kingname.info/exercise_advanced_ajax.html'</span>)</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">html=driver.page_source</span><br><span class="line">print(html)</span><br></pre></td></tr></table></figure>
+<p>上面这样使用time.sleep()等待了5秒，但具体情况可能小于5秒，也可能大于5秒，所以如果能监听到正好加载完成就最好了。所以需要使用WebDriverWait、By、和excepted_conditions,向下面这样<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">driver=webdriver.Chrome(<span class="string">r'D:\chromeDriver\chromedriver_win32\chromedriver.exe'</span>)</span><br><span class="line">driver.get(<span class="string">'http://exercise.kingname.info/exercise_advanced_ajax.html'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    WebDriverWait(driver,<span class="number">30</span>).until(expected_conditions.presence_of_element_located((By.CLASS_NAME,<span class="string">"content"</span>)))</span><br><span class="line">    <span class="comment"># WebDriverWait(driver, 30).until(</span></span><br><span class="line">    <span class="comment">#     expected_conditions.text_to_be_present_in_element(</span></span><br><span class="line">    <span class="comment">#         (By.CLASS_NAME, "content"),"通关"))</span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> _:</span><br><span class="line">    print(<span class="string">'超时了'</span>)</span><br><span class="line">html=driver.page_source</span><br><span class="line">print(html)</span><br></pre></td></tr></table></figure></p>
+<p>代码中的30表示最多30秒等待时间，超出等待时间就会产生异常<br>expected_conditions.presence_of_element_located((By.CLASS_NAME,”content”))意思是等待classname为content的html元素出现，但是打印出代码发现content中的文本却没有出现，所以想到是不是太快了，一出现了标签就输出，所以没来得及输出内容，这时用另一个等待条件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WebDriverWait(driver, <span class="number">30</span>).until(</span><br><span class="line">    expected_conditions.text_to_be_present_in_element(</span><br><span class="line">        (By.CLASS_NAME, <span class="string">"content"</span>),<span class="string">"通关"</span>))</span><br></pre></td></tr></table></figure></p>
+<p>这个条件的意思是当classname为content的元素中出现内容为“通关”的文本。<br>其他注意的方面：</p>
+<ul>
+<li>By还可以By.ID、By.NAME等，也可以By.XPATH，例如：presence_of_element_located((By.XPATH,’//div[@class=”content”]’))</li>
+<li>presence_of_element_located的参数是一个元组</li>
+<li>text_to_be_present_in_element的第一个参数是元组，第二个参数是内容，也可以是正则表达式</li>
+</ul>
+<h6 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h6><p>我想，既然已经能得到driver.page_source，那么接下来应该也可以使用xpath了<br>除此之外还可以直接在driver上使用获取元素的方法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">element=driver.find_element_by_xpath(<span class="string">'//div[@class="content"]'</span>)</span><br><span class="line">print(element.text)</span><br></pre></td></tr></table></figure></p>
+<p>使用<br>find_element_by_xpath，只会返回一个element对象，但要是一个也没找到，就会产生异常<br>find_elements_by_xpath，会返回一个element列表，如果一个也没找到，返回的是一个空列表，不会报错。<br>如果要获得标签里的文本信息，需要使用element.text属性，不能在xpath中加text()</p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LeSpider</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    comment_url=<span class="string">'http://api.my.le.com/vcm/api/list?jsonp=jQuery19108339382637251942_1546789205636&amp;type=video&amp;rows=20&amp;page=1&amp;sort=&amp;cid=1&amp;source=1&amp;xid=&#123;vid&#125;&amp;pid=&#123;pid&#125;&amp;ctype=cmt%2Cimg%2Cvote&amp;listType=1&amp;_=1546789205644'</span></span><br><span class="line"></span><br><span class="line">    header=&#123;<span class="string">'Accept'</span>: <span class="string">'*/*'</span>,</span><br><span class="line"><span class="string">'Accept-Encoding'</span> :<span class="string">'gzip, deflate'</span>,</span><br><span class="line"><span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.9'</span>,</span><br><span class="line"><span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line"><span class="string">'Cookie'</span>: <span class="string">'tj_lc=5c9178fc09b66618f1f31aa3f22b78f7; tj_uuid=-_15467811859630159379; tj_env=1; ssoCookieSynced=1; language=zh-cn; sso_curr_country=CN; ark_uuid=ck-33d68842-e259-4298-b39d-5dcf1de8f5c6; bd_xid=5c9178fc09b66618f1f31aa3f22b78f7; tj_v2c=-31522468_1; daily_popup=1'</span>,</span><br><span class="line"><span class="string">'Host'</span>: <span class="string">'api.my.le.com'</span>,</span><br><span class="line"><span class="string">'Referer'</span>: <span class="string">'http://www.le.com/ptv/vplay/31522468.html?ref=jrjd_pc'</span>,</span><br><span class="line"><span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,url)</span>:</span></span><br><span class="line">        self.necessary_info=&#123;&#125;</span><br><span class="line">        self.url=url</span><br><span class="line">        self.get_id()</span><br><span class="line">        self.get_comment()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_source</span><span class="params">(self,url,header)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> requests.get(url,header).content.decode()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_id</span><span class="params">(self)</span>:</span></span><br><span class="line">        html_htr=self.get_source(self.url,self.header)</span><br><span class="line">        vid=re.search(<span class="string">'vid: (\d+)'</span>,html_htr).group(<span class="number">1</span>)</span><br><span class="line">        pid = re.search(<span class="string">'pid: (\d+)'</span>, html_htr).group(<span class="number">1</span>)</span><br><span class="line">        self.necessary_info[<span class="string">'vid'</span>]=vid</span><br><span class="line">        self.necessary_info[<span class="string">'pid'</span>] = pid</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_comment</span><span class="params">(self)</span>:</span></span><br><span class="line">        url=self.comment_url.format(vid=self.necessary_info[<span class="string">'vid'</span>],pid=self.necessary_info[<span class="string">'pid'</span>])</span><br><span class="line">        source=self.get_source(url,self.header)</span><br><span class="line">        source_json=source[source.find(<span class="string">'&#123;"'</span>):<span class="number">-1</span>]</span><br><span class="line">        comment_dict=json.loads(source_json)</span><br><span class="line">        comments=comment_dict[<span class="string">"data"</span>]</span><br><span class="line">        <span class="keyword">for</span> comment <span class="keyword">in</span> comments:</span><br><span class="line">            print(<span class="string">'姓名：'</span>+comment[<span class="string">'user'</span>][<span class="string">'username'</span>]+<span class="string">"  评论："</span>+comment[<span class="string">'content'</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    spider=LeSpider(<span class="string">'http://www.le.com/ptv/vplay/31522468.html?ref=jrjd_pc'</span>)</span><br></pre></td></tr></table></figure>
+<p>爬取了乐视视频中无名之辈的评论<br>只是一次简单的ajax请求获取，没有用selenium<br>注意点有：</p>
+<ul>
+<li>伪造请求头</li>
+<li>寻找ajax请求的url，从源代码中找到xid与vid</li>
+<li>ajax请求返回的数据，使用json解析</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/spider/" rel="tag"># spider</a>
+          
+            <a href="/tags/selenium/" rel="tag"># selenium</a>
+          
+            <a href="/tags/ajax/" rel="tag"># ajax</a>
+          
+            <a href="/tags/模拟浏览器/" rel="tag"># 模拟浏览器</a>
+          
+            <a href="/tags/无名之辈/" rel="tag"># 无名之辈</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/05/python爬虫学习（三）/" rel="next" title="python爬虫学习（三）">
+                <i class="fa fa-chevron-left"></i> python爬虫学习（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head_pic.png" alt="Sfencs">
+            
+              <p class="site-author-name" itemprop="name">Sfencs</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sfencs" title="GitHub &rarr; https://github.com/sfencs" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:15832381691@163.com" title="E-Mail &rarr; mailto:15832381691@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.cnblogs.com/sfencs-hcy/" title="博客园 &rarr; https://www.cnblogs.com/sfencs-hcy/" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>博客园</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1790667882&website=www.oicqzone.com" title="QQ &rarr; tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1790667882&website=www.oicqzone.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selenium"><span class="nav-number">2.</span> <span class="nav-text">selenium</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">2.0.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用"><span class="nav-number">2.0.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#等待信息"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">等待信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#获取元素"><span class="nav-number">2.0.2.2.</span> <span class="nav-text">获取元素</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">3.</span> <span class="nav-text">练习</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sfencs</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.5.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-  nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
