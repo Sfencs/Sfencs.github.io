@@ -115,25 +115,25 @@
 
 
 
-  <meta name="description" content="前言之前是直接构造re去找内容，找的很是费劲，还容易找错，用了xPath方便了许多 xPath使用xPath在lxml模块中使用方法：123import lxml.htmlselector = lxml.html.fromstring(&apos;网页字符串&apos;)info = selector.xpath(&apos;xPath语句&apos;) 网页字符串用requests去搞info得到的是一个列表 xPath语法1.通用">
-<meta name="keywords" content="爬虫,spider,onepiece,title,tieba,xPath">
+  <meta name="description" content="前言有许多网站，登录与不登录显示的页面是不一样的，所以直接发送get请求是得不到所要的网页，于是便要模拟登录网页 Selenium模拟登录使用selenium直接操纵元素，就可以实现登录，出现的新页面也会到driver.page_source,就像是用代码来自动化使用浏览器12345678910111213141516171819202122232425262728293031323334353">
+<meta name="keywords" content="爬虫,spider,selenium,模拟登录,模拟浏览器,python,表单登录,session">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python爬虫学习（二）">
-<meta property="og:url" content="http://yoursite.com/2018/12/26/python爬虫学习（二）/index.html">
+<meta property="og:title" content="python爬虫学习（五）">
+<meta property="og:url" content="http://yoursite.com/2019/01/11/python爬虫学习（五）/index.html">
 <meta property="og:site_name" content="I&#39;m Sfencs">
-<meta property="og:description" content="前言之前是直接构造re去找内容，找的很是费劲，还容易找错，用了xPath方便了许多 xPath使用xPath在lxml模块中使用方法：123import lxml.htmlselector = lxml.html.fromstring(&apos;网页字符串&apos;)info = selector.xpath(&apos;xPath语句&apos;) 网页字符串用requests去搞info得到的是一个列表 xPath语法1.通用">
+<meta property="og:description" content="前言有许多网站，登录与不登录显示的页面是不一样的，所以直接发送get请求是得不到所要的网页，于是便要模拟登录网页 Selenium模拟登录使用selenium直接操纵元素，就可以实现登录，出现的新页面也会到driver.page_source,就像是用代码来自动化使用浏览器12345678910111213141516171819202122232425262728293031323334353">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-26T10:05:25.920Z">
+<meta property="og:updated_time" content="2019-01-11T15:38:37.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python爬虫学习（二）">
-<meta name="twitter:description" content="前言之前是直接构造re去找内容，找的很是费劲，还容易找错，用了xPath方便了许多 xPath使用xPath在lxml模块中使用方法：123import lxml.htmlselector = lxml.html.fromstring(&apos;网页字符串&apos;)info = selector.xpath(&apos;xPath语句&apos;) 网页字符串用requests去搞info得到的是一个列表 xPath语法1.通用">
+<meta name="twitter:title" content="python爬虫学习（五）">
+<meta name="twitter:description" content="前言有许多网站，登录与不登录显示的页面是不一样的，所以直接发送get请求是得不到所要的网页，于是便要模拟登录网页 Selenium模拟登录使用selenium直接操纵元素，就可以实现登录，出现的新页面也会到driver.page_source,就像是用代码来自动化使用浏览器12345678910111213141516171819202122232425262728293031323334353">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/26/python爬虫学习（二）/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/11/python爬虫学习（五）/">
 
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>python爬虫学习（二） | I'm Sfencs</title>
+  <title>python爬虫学习（五） | I'm Sfencs</title>
   
 
 
@@ -356,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/26/python爬虫学习（二）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/11/python爬虫学习（五）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sfencs">
@@ -373,7 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python爬虫学习（二）
+          <h1 class="post-title" itemprop="name headline">python爬虫学习（五）
               
             
           </h1>
@@ -398,7 +398,7 @@
                 
               
 
-              <time title="创建时间：2018-12-26 16:00:30 / 修改时间：18:05:25" itemprop="dateCreated datePublished" datetime="2018-12-26T16:00:30+08:00">2018-12-26</time>
+              <time title="创建时间：2019-01-11 23:39:04 / 修改时间：23:38:37" itemprop="dateCreated datePublished" datetime="2019-01-11T23:39:04+08:00">2019-01-11</time>
             
 
             
@@ -455,20 +455,19 @@
 
       
         <a id="more"></a>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前是直接构造re去找内容，找的很是费劲，还容易找错，用了xPath方便了许多</p>
-<h3 id="xPath使用"><a href="#xPath使用" class="headerlink" title="xPath使用"></a>xPath使用</h3><p>xPath在lxml模块中<br>使用方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lxml.html</span><br><span class="line">selector = lxml.html.fromstring(<span class="string">'网页字符串'</span>)</span><br><span class="line">info = selector.xpath(<span class="string">'xPath语句'</span>)</span><br></pre></td></tr></table></figure></p>
-<p>网页字符串用requests去搞<br>info得到的是一个列表</p>
-<h3 id="xPath语法"><a href="#xPath语法" class="headerlink" title="xPath语法"></a>xPath语法</h3><h5 id="1-通用语法"><a href="#1-通用语法" class="headerlink" title="1.通用语法"></a>1.通用语法</h5><p>获取文本：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//标签<span class="number">1</span>[@属性=<span class="string">"属性值"</span>]/标签<span class="number">2</span>[@属性=<span class="string">"属性值"</span>]/.../text()</span><br></pre></td></tr></table></figure></p>
-<p>获取属性：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//标签<span class="number">1</span>[@属性=<span class="string">"属性值"</span>]/标签<span class="number">2</span>[@属性=<span class="string">"属性值"</span>]/.../@属性</span><br></pre></td></tr></table></figure></p>
-<p>这里属性=后的引号必须为双引号</p>
-<h5 id="2-第一个标签选择"><a href="#2-第一个标签选择" class="headerlink" title="2.第一个标签选择"></a>2.第一个标签选择</h5><p>如果第一个为html标签，则最开始不用双斜线，用单斜线<br>没必要从头开始写标签，只要能准确找到就行  </p>
-<h5 id="3-标签的属性需要再写，不需要时最好不写"><a href="#3-标签的属性需要再写，不需要时最好不写" class="headerlink" title="3.标签的属性需要再写，不需要时最好不写"></a>3.标签的属性需要再写，不需要时最好不写</h5><h5 id="4-特殊情况"><a href="#4-特殊情况" class="headerlink" title="4.特殊情况"></a>4.特殊情况</h5><h6 id="找属性以相同字符串开头的"><a href="#找属性以相同字符串开头的" class="headerlink" title="找属性以相同字符串开头的"></a>找属性以相同字符串开头的</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//标签[starts-<span class="keyword">with</span>(@属性名,<span class="string">'相同的开头'</span>)]</span><br></pre></td></tr></table></figure>
-<h6 id="找属性包含相同内容的"><a href="#找属性包含相同内容的" class="headerlink" title="找属性包含相同内容的"></a>找属性包含相同内容的</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//标签[contains(@属性名,<span class="string">'相同的内容'</span>)]</span><br></pre></td></tr></table></figure>
-<h6 id="用xPath先抓大，再抓小"><a href="#用xPath先抓大，再抓小" class="headerlink" title="用xPath先抓大，再抓小"></a>用xPath先抓大，再抓小</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lxml.html</span><br><span class="line">selector = lxml.html.fromstring(<span class="string">'网页字符串'</span>)</span><br><span class="line">block = selector.xpath(<span class="string">'//div[@class="useful"]'</span>)</span><br><span class="line">info_list=block[<span class="number">0</span>].xpath(<span class="string">'ul/li/text()'</span>)</span><br></pre></td></tr></table></figure>
-<p>抓小的时候，也就是用xpath的返回值再xpath时，xpath语句最前边不用再加斜线了（只有是父标签的第一级孩子标签时）</p>
-<h6 id="只要字符串"><a href="#只要字符串" class="headerlink" title="只要字符串"></a>只要字符串</h6><p>想要抓取部分中的全部text，又不想要里边的标签<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">block = selector.xpath(<span class="string">'//div[@class="useful"]'</span>)</span><br><span class="line">info=block[<span class="number">0</span>].xpath(<span class="string">'string(.)'</span>)</span><br></pre></td></tr></table></figure></p>
-<p>同样是先抓大，然后去标签，但是这里返回的直接是字符串，不是列表了</p>
-<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p>简单的用xpath爬了百度海贼王吧的首页帖子标题，练习了一下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lxml.html</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    html_ = requests.get(</span><br><span class="line">        <span class="string">'https://tieba.baidu.com/f?kw=%E6%B5%B7%E8%B4%BC%E7%8E%8B&amp;ie=utf-8'</span>)</span><br><span class="line">    html_str = html_.content.decode()</span><br><span class="line">    <span class="comment"># print(html_str)</span></span><br><span class="line"></span><br><span class="line">    selector = lxml.html.fromstring(html_str)</span><br><span class="line">    info = selector.xpath(</span><br><span class="line">        <span class="string">'//div[@class="threadlist_title pull_left j_th_tit "]/a[@rel="noreferrer"]/text()'</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> info:</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>有许多网站，登录与不登录显示的页面是不一样的，所以直接发送get请求是得不到所要的网页，于是便要模拟登录网页</p>
+<h3 id="Selenium模拟登录"><a href="#Selenium模拟登录" class="headerlink" title="Selenium模拟登录"></a>Selenium模拟登录</h3><p>使用selenium直接操纵元素，就可以实现登录，出现的新页面也会到driver.page_source,就像是用代码来自动化使用浏览器<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome(</span><br><span class="line">    <span class="string">r'D:\chromeDriver\chromedriver_win32\chromedriver.exe'</span>)</span><br><span class="line">driver.get(<span class="string">'https://www.zhihu.com/#signin'</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    WebDriverWait(</span><br><span class="line">        driver, <span class="number">30</span>).until(</span><br><span class="line">        expected_conditions.presence_of_element_located(</span><br><span class="line">            (By.CLASS_NAME, <span class="string">"SignContainer-switch"</span>)))</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> _:</span><br><span class="line">    print(<span class="string">'超时了'</span>)</span><br><span class="line"></span><br><span class="line">convert = driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">'//div[@class="SignContainer-switch"]/span'</span>)</span><br><span class="line">convert.click()</span><br><span class="line">element = driver.find_element_by_name(<span class="string">'username'</span>)</span><br><span class="line">element.clear()</span><br><span class="line">element.send_keys(<span class="string">'用户名或手机号'</span>)</span><br><span class="line">password = driver.find_element_by_name(<span class="string">'password'</span>)</span><br><span class="line">password.clear()</span><br><span class="line">password.send_keys(<span class="string">'密码'</span>)</span><br><span class="line">login = driver.find_element_by_class_name(<span class="string">'SignFlow-submitButton'</span>)</span><br><span class="line">login.click()</span><br><span class="line">input(<span class="string">'输完验证码后回来随便点击'</span>)</span><br><span class="line">login = driver.find_element_by_class_name(<span class="string">'SignFlow-submitButton'</span>)</span><br><span class="line">login.click()</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    WebDriverWait(</span><br><span class="line">        driver, <span class="number">30</span>).until(</span><br><span class="line">        expected_conditions.presence_of_element_located(</span><br><span class="line">            (By.CLASS_NAME, <span class="string">"ContentItem-actions"</span>)))</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> _:</span><br><span class="line">    print(<span class="string">'超时了'</span>)</span><br><span class="line"></span><br><span class="line">print(driver.page_source)</span><br></pre></td></tr></table></figure></p>
+<p>这是一次模拟登录知乎的程序，有一些简单的知识点：</p>
+<ul>
+<li>获得的元素执行点击事件是click()方法，如convert.click()</li>
+<li>element.send_keys(‘用户名或手机号’)用来像输入框中输入内容</li>
+<li>Keys没有用到，它是用来模拟键盘点击的，就像Keys.RETURN是回车</li>
+</ul>
+<p>但是这次模拟登录知乎是失败了，好像登录按键的事件没有触发似的，我自己在弹出的浏览器窗口中手动点登录也不行，不知道是什么情况。</p>
+<h3 id="Cookies登录"><a href="#Cookies登录" class="headerlink" title="Cookies登录"></a>Cookies登录</h3><p>cookies保持了会话的状态，所以不用输入登录的用户名和密码就可以进入已经登录的页面，如下面的使用cookie登录知乎<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">'Cookie'</span>: <span class="string">'_zap=79129e11-2234-4966-8944-adb60b9c14c6; _xsrf=XlcxvsBo5TJmQDTO4A1xe7smfeN5UfDh; d_c0="AGAo89B-aQ6PTpsOhTwhqyyn5UMUZnI7r58=|1540377843"; __utma=155987696.314537570.1540907037.1540907037.1540907037.1; __utmz=155987696.1540907037.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); capsion_ticket="2|1:0|10:1546854171|14:capsion_ticket|44:OTM3YzExMzZjYmYyNDFmNjkzMzA5YmM2MjI3NjU5NmQ=|c086c42543ef848a8ef40d784d2c8ba6781eb6f0a0fa94d539ffdff434f9ab2b"; z_c0="2|1:0|10:1546854208|4:z_c0|92:Mi4xSnBJdEF3QUFBQUFBWUNqejBINXBEaVlBQUFCZ0FsVk5RRzBnWFFDZjljMVVOd2RqY1YwM0I1a3c0VnZKZC1HMmlR|f0df44f91a65e1e4e2993945dc67fce794f61a7e90102232b38fda690eeba41b"; tst=r; q_c1=7630f07079a0448e96e7158153c19ed5|1546854209000|1546854209000; __gads=ID=12b7dd609550ae38:T=1546854211:S=ALNI_MbYqA3v-xw_Fvwi8FcWwM7v1YU4Gw; tgw_l7_route=66cb16bc7f45da64562a077714739c11; Hm_lvt_39dcd5bd05965dcfa70b1d2457c6dcae=1546854148,1547216943; Hm_lpvt_39dcd5bd05965dcfa70b1d2457c6dcae=1547216943'</span>,</span><br><span class="line">    <span class="string">'Host'</span>: <span class="string">'www.zhihu.com'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'</span>,</span><br><span class="line">&#125;</span><br><span class="line">session = requests.Session()</span><br><span class="line">source = session.get(</span><br><span class="line">    <span class="string">'https://zhihu.com'</span>,</span><br><span class="line">    headers=headers,</span><br><span class="line">    verify=<span class="keyword">False</span>).content.decode()</span><br><span class="line">print(source)</span><br></pre></td></tr></table></figure></p>
+<p>从浏览器中赋值cookie到请求头后即可</p>
+<h3 id="表单登录"><a href="#表单登录" class="headerlink" title="表单登录"></a>表单登录</h3><p>表单登录有一个问题在于，登录成功后会重定向一个新的页面，即进行一个页面跳转，那么就找不到发送请求的url了。这是通过点击network下的Preserve log，就可看见之前的记录。<br>下面是《Python爬虫开发从入门到实战》中的一个例子<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">session = requests.Session()</span><br><span class="line">data=&#123;<span class="string">'username'</span>:<span class="string">'kingname'</span>,<span class="string">'password'</span>:<span class="string">'genius'</span>,<span class="string">'remember'</span>:<span class="string">'Yes'</span>&#125;</span><br><span class="line">session.post(</span><br><span class="line">    <span class="string">'http://exercise.kingname.info/exercise_login'</span>,data=data)</span><br><span class="line">source=session.get(<span class="string">'http://exercise.kingname.info/exercise_login_success'</span>).content.decode()</span><br><span class="line">print(source)</span><br></pre></td></tr></table></figure></p>
+<p>通过使用session将会话保持，先用浏览器查看post请求的url和之后跳转到的新url，然后使用session发送请求。</p>
 
       
     </div>
@@ -496,13 +495,17 @@
           
             <a href="/tags/spider/" rel="tag"># spider</a>
           
-            <a href="/tags/onepiece/" rel="tag"># onepiece</a>
+            <a href="/tags/selenium/" rel="tag"># selenium</a>
           
-            <a href="/tags/title/" rel="tag"># title</a>
+            <a href="/tags/模拟登录/" rel="tag"># 模拟登录</a>
           
-            <a href="/tags/tieba/" rel="tag"># tieba</a>
+            <a href="/tags/模拟浏览器/" rel="tag"># 模拟浏览器</a>
           
-            <a href="/tags/xPath/" rel="tag"># xPath</a>
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/表单登录/" rel="tag"># 表单登录</a>
+          
+            <a href="/tags/session/" rel="tag"># session</a>
           
         </div>
       
@@ -515,8 +518,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/26/python爬虫学习（一）/" rel="next" title="python爬虫学习（一）">
-                <i class="fa fa-chevron-left"></i> python爬虫学习（一）
+              <a href="/2019/01/07/python爬虫学习（四）/" rel="next" title="python爬虫学习（四）">
+                <i class="fa fa-chevron-left"></i> python爬虫学习（四）
               </a>
             
           </div>
@@ -524,10 +527,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/05/python爬虫学习（三）/" rel="prev" title="python爬虫学习（三）">
-                python爬虫学习（三） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -770,7 +769,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xPath使用"><span class="nav-number">2.</span> <span class="nav-text">xPath使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xPath语法"><span class="nav-number">3.</span> <span class="nav-text">xPath语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-通用语法"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.通用语法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-第一个标签选择"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.第一个标签选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-标签的属性需要再写，不需要时最好不写"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.标签的属性需要再写，不需要时最好不写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-特殊情况"><span class="nav-number">3.0.4.</span> <span class="nav-text">4.特殊情况</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#找属性以相同字符串开头的"><span class="nav-number">3.0.4.1.</span> <span class="nav-text">找属性以相同字符串开头的</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#找属性包含相同内容的"><span class="nav-number">3.0.4.2.</span> <span class="nav-text">找属性包含相同内容的</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用xPath先抓大，再抓小"><span class="nav-number">3.0.4.3.</span> <span class="nav-text">用xPath先抓大，再抓小</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#只要字符串"><span class="nav-number">3.0.4.4.</span> <span class="nav-text">只要字符串</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#实战"><span class="nav-number">4.</span> <span class="nav-text">实战</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selenium模拟登录"><span class="nav-number">2.</span> <span class="nav-text">Selenium模拟登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookies登录"><span class="nav-number">3.</span> <span class="nav-text">Cookies登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单登录"><span class="nav-number">4.</span> <span class="nav-text">表单登录</span></a></li></ol></div>
             
 
           </div>
