@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myhead.ico?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言Scrapy是基于Python的分布式爬虫框架，从现在起学习Scrapy框架，之前的android原生app爬虫，由于不知为什么uiautomator的python库使用总是不成功，所以暂时先鸽了，等有空看看appium。 Scrapy安装 Visual C++ Build Tools的安装，之前一直在用c和c++，应该不用再安了 pywin32，用pip装了下，发现已经有了 Twisted">
+<meta name="keywords" content="爬虫,spider,python,Scrapy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬虫学习（九）">
+<meta property="og:url" content="http://yoursite.com/2019/01/20/python爬虫学习（九）/index.html">
+<meta property="og:site_name" content="I&#39;m Sfencs">
+<meta property="og:description" content="前言Scrapy是基于Python的分布式爬虫框架，从现在起学习Scrapy框架，之前的android原生app爬虫，由于不知为什么uiautomator的python库使用总是不成功，所以暂时先鸽了，等有空看看appium。 Scrapy安装 Visual C++ Build Tools的安装，之前一直在用c和c++，应该不用再安了 pywin32，用pip装了下，发现已经有了 Twisted">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-19T16:03:33.769Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python爬虫学习（九）">
+<meta name="twitter:description" content="前言Scrapy是基于Python的分布式爬虫框架，从现在起学习Scrapy框架，之前的android原生app爬虫，由于不知为什么uiautomator的python库使用总是不成功，所以暂时先鸽了，等有空看看appium。 Scrapy安装 Visual C++ Build Tools的安装，之前一直在用c和c++，应该不用再安了 pywin32，用pip装了下，发现已经有了 Twisted">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/20/python爬虫学习（九）/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python爬虫学习（九） | I'm Sfencs</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6139292fd994369514ac85833fdd0626";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Sfencs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Sfencs'blog</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/20/python爬虫学习（九）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sfencs">
+      <meta itemprop="description" content="Welcome to my blog">
+      <meta itemprop="image" content="/images/head_pic.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Sfencs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python爬虫学习（九）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-20 00:04:16 / 修改时间：00:03:33" itemprop="dateCreated datePublished" datetime="2019-01-20T00:04:16+08:00">2019-01-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a id="more"></a>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Scrapy是基于Python的分布式爬虫框架，从现在起学习Scrapy框架，之前的android原生app爬虫，由于不知为什么uiautomator的python库使用总是不成功，所以暂时先鸽了，等有空看看appium。</p>
+<h3 id="Scrapy安装"><a href="#Scrapy安装" class="headerlink" title="Scrapy安装"></a>Scrapy安装</h3><ul>
+<li>Visual C++ Build Tools的安装，之前一直在用c和c++，应该不用再安了</li>
+<li>pywin32，用pip装了下，发现已经有了</li>
+<li>Twisted，是python中一个基于事件驱动的异步输入输出引擎，依赖于pywin32与Visual C++ Build，使用pip安装</li>
+<li>安装Scrapy，同样pip安装。</li>
+</ul>
+<h3 id="Scrapy的使用"><a href="#Scrapy的使用" class="headerlink" title="Scrapy的使用"></a>Scrapy的使用</h3><h5 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h5><p>scrapy startproject 项目名<br>接下来创建爬虫<br>cd 项目名<br>scrapy genspider 爬虫名 网址<br>进入生成的爬虫py文件中，将pass改为print(response.body.decode())<br>启动爬虫的命令为是在项目的根目录下执行scrapy crawl 爬虫名<br>此时会发现Forbidden by robots.txt，这是由于scrapy遵守robots协议，要想取消遵守，需要在settings中将ROBOTSTXT_OBEY改为False  </p>
+<p>Scrapy的爬虫不能直接运行py文件，如果想使用运行py文件的方式启动爬虫，需要添加一个新的py文件，例如main.py，在里边写入：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> cmdline</span><br><span class="line"></span><br><span class="line">cmdline.execute(<span class="string">'scrapy crawl 爬虫名'</span>.split())</span><br></pre></td></tr></table></figure></p>
+<h5 id="使用XPath"><a href="#使用XPath" class="headerlink" title="使用XPath"></a>使用XPath</h5><p>使用方式为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title=response.xpath(<span class="string">'//title/text()'</span>).extract()</span><br></pre></td></tr></table></figure></p>
+<p>与之前使用xpath不同在于要加extract(),返回的是一个列表，也可以不加extract，但要在for循环列表为每个元素再执行一次extract<br>先抓大再抓小：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">item_list = response.xpath(<span class="string">'//ui[@class="item"]'</span>)</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> item_list:</span><br><span class="line">    name = item.xpath(<span class="string">'li[@class="name"]/text()'</span>).extract()</span><br><span class="line">    price = item.xpath(<span class="string">'li[@class="price"]/text()'</span>).extract()</span><br></pre></td></tr></table></figure></p>
+<p>也就是只有提取文本的时候才调用extract()</p>
+<h5 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h5><p>spiders为存放爬虫的文件夹<br>items定义需要抓取的数据<br>pipelines.py负责数据抓取以后的处理工作<br>settings爬虫的配置信息</p>
+<h5 id="使用MongoDB"><a href="#使用MongoDB" class="headerlink" title="使用MongoDB"></a>使用MongoDB</h5><p>首先在pipelines.py中引入settings设置的配置信息<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.conf <span class="keyword">import</span> settings</span><br></pre></td></tr></table></figure></p>
+<p>然后在items中定义好要抓取的数据，如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpidertestItem</span><span class="params">(scrapy.Item)</span>:</span></span><br><span class="line">    name = scrapy.Field()</span><br><span class="line">    price = scrapy.Field()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></p>
+<p>之后在settings.py中进行数据库的设置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MONGODB_HOST = <span class="string">'127.0.0.1'</span></span><br><span class="line">MONGODB_PORT = <span class="number">27017</span></span><br><span class="line">MONGODB_DBNAME = <span class="string">'spider'</span></span><br><span class="line">MONGODB_DOCNAME = <span class="string">'spiderTest'</span></span><br></pre></td></tr></table></figure></p>
+<p>在pipelines中就可以通过settings[名字]获得配置信息了，如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"><span class="keyword">from</span> scrapy.conf <span class="keyword">import</span> settings</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpidertestPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        host = settings[<span class="string">'MONGODB_HOST'</span>]</span><br><span class="line">        port = settings[<span class="string">'MONGODB_PORT'</span>]</span><br><span class="line">        db_name = settings[<span class="string">'MONGODB_DBNAME'</span>]</span><br><span class="line">        client = pymongo.MongoClient(host=host,port=port)</span><br><span class="line">        db = client[db_name]</span><br><span class="line">        self.post=db[settings[<span class="string">'MONGODB_DOCNAME'</span>]]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        spider_test=dict(item)</span><br><span class="line">        self.post.insert(spider_test)</span><br><span class="line">        <span class="keyword">return</span> item</span><br></pre></td></tr></table></figure></p>
+<p>之后需要告诉Scrapy应该使用piplines.py来处理数据：将settings中的<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Configure item pipelines</span></span><br><span class="line"><span class="comment"># See https://doc.scrapy.org/en/latest/topics/item-pipeline.html</span></span><br><span class="line"><span class="comment">#ITEM_PIPELINES = &#123;</span></span><br><span class="line"><span class="comment">#    'spiderTest.pipelines.SpidertestPipeline': 300,</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>把注释去掉，并改成自己需要的piplines<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Configure item pipelines</span></span><br><span class="line"><span class="comment"># See https://doc.scrapy.org/en/latest/topics/item-pipeline.html</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   <span class="string">'spiderTest.pipelines.SpidertestPipeline'</span>: <span class="number">300</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里的ITEM_PIPELINES是复数，意味着可以写多个pipline，后边跟的数字为优先级，数字越小，优先级越高，数据会先经过优先级高的pipline  </p>
+<p>现在Scrapy已经知道把items中的数据发到pipline中了，接下来就要把爬虫爬到的数据放入item中，如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> spiderTest.items <span class="keyword">import</span> PersonInfoItem</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExerciseSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'exercise'</span></span><br><span class="line">    allowed_domains = [<span class="string">'exercise.kingname.info'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://exercise.kingname.info/exercise_xpath_3.html'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        person_list=response.xpath(<span class="string">'//div[@class="person_table"]/table/tbody/tr'</span>)</span><br><span class="line">        <span class="keyword">for</span> person <span class="keyword">in</span> person_list:</span><br><span class="line">            item = PersonInfoItem()</span><br><span class="line">            person_info = person.xpath(<span class="string">'td/text()'</span>).extract()</span><br><span class="line">            item[<span class="string">'name'</span>] = person_info[<span class="number">0</span>]</span><br><span class="line">            item[<span class="string">'age'</span>] = person_info[<span class="number">1</span>]</span><br><span class="line">            item[<span class="string">'salary'</span>] = person_info[<span class="number">2</span>]</span><br><span class="line">            item[<span class="string">'phone'</span>] = person_info[<span class="number">3</span>]</span><br><span class="line">            <span class="keyword">yield</span> item</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></p>
+<p>接下来在main.py中执行，就可以将数据存到MongoDB中了。</p>
+<h5 id="使用Redis"><a href="#使用Redis" class="headerlink" title="使用Redis"></a>使用Redis</h5><p>在Scrapy中使用Redis需要一个组件叫做Scrapy_redis,可通过pip安装。  </p>
+<p>在爬虫中使用redis一般就是用来缓存待爬取的网页与自动去重。要使用redis需要进行下边的操作：</p>
+<h6 id="修改爬虫"><a href="#修改爬虫" class="headerlink" title="修改爬虫"></a>修改爬虫</h6><p>之前的爬虫继承的父类是scrapy.Spider，现在需要引入RedisSpider<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy_redis.spiders <span class="keyword">import</span> RedisSpider</span><br></pre></td></tr></table></figure></p>
+<p>将父类改为RedisSpider<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapy_redis.spiders <span class="keyword">import</span> RedisSpider</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrapyRedisTestSpider</span><span class="params">(RedisSpider)</span>:</span></span><br><span class="line">    name = <span class="string">'scrapy_redis_test'</span></span><br><span class="line">    allowed_domains = [<span class="string">'url.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://url.com/'</span>]</span><br><span class="line">    redis_key = <span class="string">'ScrapyRedisTestSpider:start_urls'</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></p>
+<p>与原来相比多了redis_key = ‘ScrapyRedisTestSpider:start_urls’，redis_key其实就是redis中的一个列表，字符串就是列表的名字，之后爬虫爬到的url都会保存到这个列表中，同时爬虫也会从中读取后续页面的url</p>
+<h6 id="修改设置"><a href="#修改设置" class="headerlink" title="修改设置"></a>修改设置</h6><p>（1）调度scheduler<br>在settings中添加<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enables scheduling storing requests queue in redis</span></span><br><span class="line">SCHEDULER = <span class="string">"scrapy_redis.scheduler.Scheduler"</span></span><br></pre></td></tr></table></figure></p>
+<p>（2）去重<br>在settings中添加<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ensure all spiders share same duplicates filter through redis</span></span><br><span class="line">DUPEFILTER_CLASS = <span class="string">"scrapy_redis.dupefilter.RFPDupeFilter"</span></span><br></pre></td></tr></table></figure></p>
+<p>（3）爬虫请求的调度<br>调度方式有3种：<br>队列：SCHEDULER_QUEUE_CLASS = ‘scrapy_redis.queue.SpiderQueue’<br>栈：SCHEDULER_QUEUE_CLASS = ‘scrapy_redis.queue.SpiderStack’<br>优先级队列：SCHEDULER_QUEUE_CLASS = ‘scrapy_redis.queue.PriorityQueue’<br>实际开发中选取一个写在settings即可<br>（4）不清理Redis队列<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Don't cleanup redis queues, allows to pause/resume crawls</span></span><br><span class="line">SCHEDULER_PERSIST = <span class="keyword">True</span></span><br></pre></td></tr></table></figure></p>
+<p>设置为True则redis中的url不会被清理掉，这样爬虫停止后再重启会从上次暂停的地方开始爬取。设置为False则会读取url后将其删掉。<br>（5）redis信息配置<br>什么都不写默认是本机，如果在其他计算机上则要写：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">REDIS_HOST = <span class="string">'127.0.0.1'</span></span><br><span class="line">REDIS_PORT = <span class="string">'6379'</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/spider/" rel="tag"># spider</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/Scrapy/" rel="tag"># Scrapy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/14/python爬虫学习（七）/" rel="next" title="python爬虫学习（七）">
+                <i class="fa fa-chevron-left"></i> python爬虫学习（七）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head_pic.png" alt="Sfencs">
+            
+              <p class="site-author-name" itemprop="name">Sfencs</p>
+              <p class="site-description motion-element" itemprop="description">Welcome to my blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sfencs" title="GitHub &rarr; https://github.com/sfencs" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:15832381691@163.com" title="E-Mail &rarr; mailto:15832381691@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.cnblogs.com/sfencs-hcy/" title="博客园 &rarr; https://www.cnblogs.com/sfencs-hcy/" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>博客园</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1790667882&website=www.oicqzone.com" title="QQ &rarr; tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1790667882&website=www.oicqzone.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy安装"><span class="nav-number">2.</span> <span class="nav-text">Scrapy安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy的使用"><span class="nav-number">3.</span> <span class="nav-text">Scrapy的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建项目"><span class="nav-number">3.0.1.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用XPath"><span class="nav-number">3.0.2.</span> <span class="nav-text">使用XPath</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#工程结构"><span class="nav-number">3.0.3.</span> <span class="nav-text">工程结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用MongoDB"><span class="nav-number">3.0.4.</span> <span class="nav-text">使用MongoDB</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用Redis"><span class="nav-number">3.0.5.</span> <span class="nav-text">使用Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#修改爬虫"><span class="nav-number">3.0.5.1.</span> <span class="nav-text">修改爬虫</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#修改设置"><span class="nav-number">3.0.5.2.</span> <span class="nav-text">修改设置</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sfencs</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.5.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-  nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
